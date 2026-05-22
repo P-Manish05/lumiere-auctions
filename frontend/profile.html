@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>My Profile | LUMIÈRE AUCTIONS</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e6c364",
+                        "primary-container": "#c9a84c",
+                        "on-primary": "#3d2e00",
+                        "background": "#0A0A0A",
+                        "on-background": "#e5e2e1",
+                        "surface": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "surface-variant": "#353534",
+                        "on-surface-variant": "#d0c5b2",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "outline-variant": "#4d4637"
+                    },
+                    spacing: {
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "section-gap": "128px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px",
+                        "gutter": "32px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #E5E2E1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(230, 195, 100, 0.3);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-outline-variant/20">
+        <div class="flex justify-between items-center px-6 md:px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+            <a class="font-display-lg text-headline-sm text-primary uppercase tracking-[0.2em] hover:opacity-85 transition-opacity" href="index.html">LUMIÈRE AUCTIONS</a>
+            <div class="hidden md:flex items-center gap-stack-lg">
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="auctions.html">LIVE AUCTIONS</a>
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="auctions.html">COLLECTIONS</a>
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="auctions.html">PRIVATE SALES</a>
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">ABOUT</a>
+                <a class="font-label-lg text-label-lg tracking-widest text-primary border-b border-primary pb-1" href="profile.html">PROFILE</a>
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="dashboard.html">DASHBOARD</a>
+            </div>
+            <div class="flex items-center gap-stack-md">
+                <button class="material-symbols-outlined text-primary hover:scale-110 transition-transform">notifications</button>
+                <button id="logout-btn" class="px-6 py-2 bg-outline-variant/20 text-on-surface font-label-lg text-label-lg tracking-widest hover:bg-outline-variant/40 transition-all">LOGOUT</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-section-gap px-margin-desktop max-w-container-max mx-auto">
+        <!-- Hero Header -->
+        <header class="mb-stack-lg">
+            <h1 class="font-display-lg text-headline-lg text-primary mb-2">My Profile</h1>
+            <p class="font-headline-lg text-on-surface animate-pulse" id="profile-name">Loading...</p>
+            <p class="font-body-lg text-on-surface-variant mt-2" id="profile-member-since">Member since: Loading...</p>
+        </header>
+
+        <!-- Stats Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-section-gap">
+            <div class="glass-card p-stack-lg border-l-4 border-l-primary">
+                <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Total Bids</span>
+                <div class="font-display-lg text-headline-lg text-primary mt-2" id="stat-total-bids">-</div>
+            </div>
+            <div class="glass-card p-stack-lg border-l-4 border-l-green-500">
+                <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Winning Bids</span>
+                <div class="font-display-lg text-headline-lg text-green-500 mt-2" id="stat-winning-count">-</div>
+            </div>
+            <div class="glass-card p-stack-lg border-l-4 border-l-primary">
+                <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Total Value Bid</span>
+                <div class="font-display-lg text-headline-lg text-primary mt-2" id="stat-total-value">$-</div>
+            </div>
+            <div class="glass-card p-stack-lg border-l-4 border-l-surface-variant">
+                <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Member Since</span>
+                <div class="font-display-lg text-headline-sm text-on-surface mt-2 truncate" id="stat-member-since">-</div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-stack-lg mb-section-gap">
+            <!-- Profile Details Card -->
+            <section class="lg:col-span-1">
+                <h2 class="font-headline-sm text-headline-sm text-primary mb-stack-md">Account Details</h2>
+                <div class="glass-card p-stack-lg flex flex-col gap-stack-md">
+                    <div>
+                        <p class="text-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Full Name</p>
+                        <p class="font-body-lg text-on-surface" id="detail-name">-</p>
+                    </div>
+                    <div>
+                        <p class="text-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Email Address</p>
+                        <p class="font-body-lg text-on-surface" id="detail-email">-</p>
+                    </div>
+                    <div>
+                        <p class="text-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Status</p>
+                        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 py-1 rounded-full text-primary mt-1">
+                            <span class="material-symbols-outlined text-sm">verified</span>
+                            <span class="font-label-sm tracking-widest uppercase">Verified Collector</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity Table -->
+            <section class="lg:col-span-2">
+                <h2 class="font-headline-sm text-headline-sm text-primary mb-stack-md">Recent Activity (Last 5 Bids)</h2>
+                <div class="glass-card overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-outline-variant/20">
+                                <th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Date</th>
+                                <th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Lot Name</th>
+                                <th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Amount</th>
+                                <th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-activity-tbody" class="divide-y divide-outline-variant/10">
+                            <tr>
+                                <td colspan="4" class="p-stack-md text-center text-on-surface-variant/60 uppercase tracking-widest py-12">Loading activity...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- Danger zone -->
+        <section class="border-t border-error/30 pt-stack-lg mt-section-gap">
+            <h2 class="font-headline-sm text-error mb-2">Danger Zone</h2>
+            <p class="font-body-md text-on-surface-variant mb-stack-md">Once you delete your account, there is no going back. Please be certain.</p>
+            <button class="border border-error text-error px-6 py-3 font-label-lg tracking-widest hover:bg-error/10 transition-colors">
+                DELETE ACCOUNT
+            </button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-section-gap border-t border-outline-variant/10 bg-surface-container-lowest">
+        <div class="flex flex-col items-center gap-stack-lg px-margin-desktop w-full max-w-container-max mx-auto">
+            <div class="font-display-lg text-headline-md text-primary">LUMIÈRE AUCTIONS</div>
+            <div class="flex gap-stack-lg">
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY POLICY</a>
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS OF SALE</a>
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">SHIPPING</a>
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">CONTACT</a>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant/50">© 2024 LUMIÈRE AUCTIONS. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        const token = localStorage.getItem('lumiere_token');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('lumiere_token');
+            window.location.href = 'login.html';
+        });
+
+        function formatCurrency(amount) {
+            return '$' + Number(amount).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+
+        async function loadProfile() {
+            try {
+                // Fetch User metadata
+                const userRes = await fetch('http://localhost:8000/auth/me', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (!userRes.ok) throw new Error('Failed to fetch user');
+                
+                const user = await userRes.json();
+                
+                const memberSinceDate = user.created_at ? new Date(user.created_at) : new Date();
+                const memberSinceFormatted = memberSinceDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                const memberSinceYear = memberSinceDate.getFullYear();
+
+                document.getElementById('profile-name').textContent = user.full_name;
+                document.getElementById('profile-name').classList.remove('animate-pulse');
+                document.getElementById('profile-member-since').textContent = `Member since: ${memberSinceFormatted}`;
+                
+                document.getElementById('detail-name').textContent = user.full_name;
+                document.getElementById('detail-email').textContent = user.email;
+                document.getElementById('stat-member-since').textContent = memberSinceYear;
+
+                // Fetch bidding histories
+                const bidsRes = await fetch('http://localhost:8000/bids/my-bids', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (!bidsRes.ok) throw new Error('Failed to fetch bids');
+                
+                const bids = await bidsRes.json();
+                processBids(bids);
+                
+            } catch (err) {
+                console.error('Profile setup error:', err);
+                document.getElementById('profile-name').textContent = 'Collector';
+            }
+        }
+
+        function processBids(bids) {
+            // Stats calculation
+            const grouped = {};
+            let totalValue = 0;
+            
+            bids.forEach(b => {
+                const auctionId = b.auction.id;
+                if (!grouped[auctionId] || grouped[auctionId].amount < b.amount) {
+                    grouped[auctionId] = b;
+                }
+            });
+            const latestBidsPerAuction = Object.values(grouped);
+            
+            let winningCount = 0;
+            latestBidsPerAuction.forEach(b => {
+                const currentBidVal = b.auction.current_bid || b.amount;
+                if (b.amount === currentBidVal) {
+                    winningCount++;
+                }
+                totalValue += b.amount;
+            });
+
+            document.getElementById('stat-total-bids').textContent = bids.length.toString().padStart(2, '0');
+            document.getElementById('stat-winning-count').textContent = winningCount.toString().padStart(2, '0');
+            
+            const totalValueFormatted = totalValue >= 1000000 
+                ? `$${(totalValue / 1000000).toFixed(1)}M` 
+                : totalValue >= 1000 
+                    ? `$${(totalValue / 1000).toFixed(0)}K` 
+                    : `$${totalValue}`;
+            document.getElementById('stat-total-value').textContent = totalValueFormatted;
+
+            // Recent Activity Table (Last 5 bids)
+            const tbody = document.getElementById('recent-activity-tbody');
+            tbody.innerHTML = '';
+            
+            if (bids.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4" class="p-stack-md text-center text-on-surface-variant/60 uppercase tracking-widest py-12">No Bidding Activity</td>
+                    </tr>
+                `;
+                return;
+            }
+
+            // Sort by placed_at descending
+            const recentBids = [...bids].sort((a, b) => new Date(b.placed_at) - new Date(a.placed_at)).slice(0, 5);
+
+            recentBids.forEach(b => {
+                const dateStr = new Date(b.placed_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).toUpperCase();
+                const currentBidVal = b.auction.current_bid || b.amount;
+                const isWinning = b.amount === currentBidVal;
+                const statusClass = isWinning ? 'bg-green-500/20 text-green-500' : 'bg-error/20 text-error';
+                const statusText = isWinning ? 'Winning' : 'Outbid';
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-white/5 transition-colors cursor-pointer';
+                tr.onclick = () => { window.location.href = `auction-detail.html?id=${b.auction.id}`; };
+
+                tr.innerHTML = `
+                    <td class="p-stack-md text-label-lg font-mono">${dateStr}</td>
+                    <td class="p-stack-md font-headline-sm text-body-lg">${b.auction.title}</td>
+                    <td class="p-stack-md text-primary font-mono">${formatCurrency(b.amount)}</td>
+                    <td class="p-stack-md"><span class="px-2 py-1 ${statusClass} text-label-sm rounded uppercase">${statusText}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        loadProfile();
+    </script>
+    <!-- LUMIÈRE Premium Animations Engine -->
+    <script>
+    (function() {
+        'use strict';
+        const fadeUpCSS = document.createElement('style');
+        fadeUpCSS.textContent = `
+            @keyframes lumieresFadeUp {
+                from { opacity: 0; transform: translateY(32px); }
+                to   { opacity: 1; transform: translateY(0); }
+            }
+            .lumiere-fade-up {
+                opacity: 0;
+                animation: lumieresFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            }
+            #lumiere-page-transition {
+                position: fixed; inset: 0; z-index: 99999;
+                background: #0e0e0e;
+                opacity: 0; pointer-events: none;
+                transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            #lumiere-page-transition.active {
+                opacity: 1; pointer-events: all;
+            }
+        `;
+        document.head.appendChild(fadeUpCSS);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main > *, main section, footer');
+            sections.forEach((el, i) => {
+                el.classList.add('lumiere-fade-up');
+                el.style.animationDelay = `${0.08 + i * 0.10}s`;
+            });
+        });
+
+        const overlay = document.createElement('div');
+        overlay.id = 'lumiere-page-transition';
+        document.body.appendChild(overlay);
+
+        overlay.classList.add('active');
+        window.addEventListener('load', () => {
+            requestAnimationFrame(() => overlay.classList.remove('active'));
+        });
+
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a[href]');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('javascript') || href.startsWith('http') && !href.includes(location.host)) return;
+            if (!href.endsWith('.html') && !href.startsWith('/') && !href.endsWith('/')) return;
+            e.preventDefault();
+            overlay.classList.add('active');
+            setTimeout(() => { window.location.href = href; }, 420);
+        });
+    })();
+    </script>
+</body>
+</html>
