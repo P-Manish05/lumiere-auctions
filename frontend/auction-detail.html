@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ELYSIAN AUCTIONS | Lot Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "error": "#ffb4ab",
+                      "outline": "#99907e",
+                      "surface-variant": "#353534",
+                      "on-background": "#e5e2e1",
+                      "surface-container-high": "#2a2a2a",
+                      "primary": "#e6c364",
+                      "surface": "#131313",
+                      "primary-container": "#c9a84c",
+                      "on-tertiary": "#313030",
+                      "background": "#131313",
+                      "on-primary-fixed": "#241a00",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "primary-fixed-dim": "#e6c364",
+                      "error-container": "#93000a",
+                      "surface-dim": "#131313",
+                      "on-tertiary-container": "#40403f",
+                      "inverse-primary": "#755b00",
+                      "outline-variant": "#4d4637",
+                      "on-primary-fixed-variant": "#584400",
+                      "on-primary-container": "#503d00",
+                      "tertiary": "#c9c6c6",
+                      "secondary-container": "#4a4949",
+                      "surface-tint": "#e6c364",
+                      "surface-container-highest": "#353534",
+                      "on-surface-variant": "#d0c5b2",
+                      "on-secondary-container": "#bab8b7",
+                      "tertiary-fixed": "#e5e2e1",
+                      "surface-bright": "#3a3939",
+                      "on-primary": "#3d2e00",
+                      "primary-fixed": "#ffe08f",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "secondary": "#c8c6c5",
+                      "surface-container-low": "#1c1b1b",
+                      "inverse-on-surface": "#313030",
+                      "on-error": "#690005",
+                      "inverse-surface": "#e5e2e1",
+                      "on-surface": "#e5e2e1",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-secondary": "#313030",
+                      "tertiary-container": "#adabab",
+                      "on-secondary-fixed-variant": "#474646",
+                      "secondary-fixed": "#e5e2e1",
+                      "on-error-container": "#ffdad6",
+                      "surface-container": "#201f1f",
+                      "tertiary-fixed-dim": "#c8c6c5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "stack-lg": "32px",
+                      "stack-sm": "8px",
+                      "container-max": "1440px",
+                      "margin-mobile": "20px",
+                      "section-gap": "128px",
+                      "margin-desktop": "64px",
+                      "gutter": "32px"
+              },
+              "fontFamily": {
+                      "label-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Playfair Display"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg": ["Playfair Display"],
+                      "headline-sm": ["Playfair Display"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .gold-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .gold-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 45%, rgba(230, 195, 100, 0.1) 50%, transparent 55%);
+            transform: rotate(45deg);
+            transition: all 0.7s ease;
+            pointer-events: none;
+        }
+        .gold-shimmer:hover::after {
+            left: 100%;
+            top: 100%;
+        }
+        .pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+        @keyframes pulse-gold {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(230, 195, 100, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(230, 195, 100, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(230, 195, 100, 0); }
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #4d4637; border-radius: 2px; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/30 selection:text-primary">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-headline-sm text-primary uppercase tracking-[0.2em]" href="/">LUMIÈRE AUCTIONS</a>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-lg text-label-lg tracking-widest text-primary border-b border-primary pb-1" href="auctions.html">LIVE AUCTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVATE SALES</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ABOUT</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300" href="login.html">LOGIN</a>
+<a class="px-6 py-2 bg-primary text-on-primary font-label-lg text-label-lg tracking-widest gold-shimmer transition-all" href="login.html">REGISTER</a>
+</div>
+</div>
+</nav>
+<main class="pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: Gallery Section -->
+<div class="lg:col-span-7 space-y-stack-md">
+<div class="relative aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant/10">
+<img id="auction-image" class="w-full h-full object-cover" data-alt="A luxury auction item" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa"/>
+<div class="absolute top-6 left-6 flex items-center gap-2 px-3 py-1 bg-black/60 backdrop-blur-md border border-primary/30 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary pulse-gold"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Live Auction</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-stack-sm">
+<div class="aspect-square bg-surface-container border border-primary/40 overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Macro detail of a golden antique artifact showing intricate craftsmanship and surface patina in a dark room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrwjqOEcsv81Xvs3WQg-UnLi6PE_QvhDe11jURdVZhEt_NvILRj5flSxceJHsP_AoDUxfEPfMVkWjNL--RAkf9o5Kk7C-GlKEmN8VPc19BPrp5WyYvG_f61qhU-wcbb4BYKPiT-R9WeZ1k9MXsgHdzkl-qCFO5hy1w8UStnFDunvZsU4P_sfVaANoIxiR6CcXb9RkYsOL-gWw76upwMi_cQlNsoUlUE1f7wzr8C-gQlIfKrCKVaZVa0yq7pXG3c9Az0fl0I1mzCw"/>
+</div>
+<div class="aspect-square bg-surface-container border border-outline-variant/10 overflow-hidden cursor-pointer hover:border-primary/40 transition-colors">
+<img class="w-full h-full object-cover" data-alt="Close up shot of brushstrokes on a fine art oil painting with golden highlights and dramatic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiiejQCaJBn1bleZX2HY9CYY92mEjzEcQdlwG78_8gG9i10ApN0F5qp5cm6-M8uWdpFztwXKsXFz9zmw7V20GAxxzfY2oH8AtngZW5ivSDFfm0gYkExE0DCaxeU6E3fjohBbFSjPN4mdAqkPGWCS90g8XN8spg0vSjPN26iwUHbrer2V6gyoC4JVZOXaBvroWhxe6HOiijEfoNwgyYujXdYctiJZvMszbBc05Sw7deQE6_KA2zJeAYk-2kCENfPUdGzZ6Tn5FCfA"/>
+</div>
+<div class="aspect-square bg-surface-container border border-outline-variant/10 overflow-hidden cursor-pointer hover:border-primary/40 transition-colors">
+<img class="w-full h-full object-cover" data-alt="Profile view of a classical sculpture fragment against a dark, velvet background in a luxury auction house." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1kw4UxU_mdV8pCc6ut3G66THMUOPHklSwPqxTS4PUcYzrXrnJLcQz_5CLZcnx6XpZQZMx6MUUOxwZXlHzjl2AmEMDXEUDHaUr5TqOMIVvIGIHY3Ols2MEYHNsBv1X4Jbv2v6CcPQRlAUjR-9JIi6h0GITQisjU9u9eftTMvFCo0duYBEJlCPa2lYlpnFlCLIUvXEDf7SGCJvPpoCB_FUsOYvF260YCYVIDnANOLedjkTguYjz-VrcQ89kggfimPFdySKw9kIKJA"/>
+</div>
+<div class="aspect-square bg-surface-container border border-outline-variant/10 relative cursor-pointer group">
+<img class="w-full h-full object-cover opacity-40" data-alt="A collection of luxury items blurred in the background of a dark gallery space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIq6bTa1MUilaDqSA7k8umQEsKUJz7IvWxWBZHR1DXFYPruoGH1yvefDthDfWfbQnDD7-HP04o_vaviquVaNKPROybXnoDaJA2GwvkuSVa3DEm-VZA_Bgh0IPnshvT2o6gydd3HNheBwUl3NVtyRpiihns4qdo2pkZRDU2_f6dZRpyzh4X8gqzdxMChCu86hBLBuGYlLT-poZLPs4oVue6oVhnb-X7cyAiB8Qaq5DHtH6WLXpXsGeT0nwfD7uacNAitEmrOQgvXg"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-label-lg text-label-lg text-on-surface">+12</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Details & Bidding Section -->
+<div class="lg:col-span-5 flex flex-col gap-stack-lg">
+<div class="space-y-stack-sm">
+<p id="auction-lot" class="font-label-lg text-label-lg text-primary tracking-[0.3em] uppercase">LOT -- • MASTERPIECE SERIES</p>
+<h1 id="auction-title" class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight uppercase">LOADING LOT DETAILS...</h1>
+<p id="auction-description" class="font-body-md text-body-md text-on-surface-variant max-w-prose">Please wait while the exquisite details of this lot are retrieved from the vault.</p>
+</div>
+<!-- Countdown and Bid Info -->
+<div class="p-8 bg-surface-container-low border border-outline-variant/10 space-y-stack-lg">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-6">
+<div class="space-y-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Ends In</p>
+<div class="font-mono text-headline-md text-on-surface tabular-nums" id="countdown">--:--:--</div>
+</div>
+<div class="text-right space-y-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Current Bid</p>
+<div class="font-display-lg text-headline-lg text-primary tracking-tight animate-pulse" id="current-bid-display">$--,---</div>
+</div>
+</div>
+<!-- Bidding Form -->
+<div class="space-y-stack-md">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest ml-1">Your Bid (USD)</label>
+<div class="relative">
+<span class="absolute left-6 top-1/2 -translate-y-1/2 text-primary font-body-lg">$</span>
+<input id="bid-amount-input" class="w-full bg-surface-container-high border border-outline-variant/20 py-5 pl-12 pr-6 text-on-surface font-body-lg focus:outline-none focus:border-primary transition-all rounded-none placeholder:text-surface-variant" placeholder="Enter bid amount" type="number"/>
+</div>
+</div>
+<button id="place-bid-btn" class="w-full py-6 bg-primary text-on-primary font-label-lg text-label-lg tracking-[0.2em] gold-shimmer hover:brightness-110 transition-all uppercase">
+                            Place Bid
+                        </button>
+<p id="reserve-text" class="text-center font-label-sm text-label-sm text-on-surface-variant">Checking reserve status...</p>
+</div>
+</div>
+<!-- Real-time Bid History Feed -->
+<div class="flex flex-col gap-stack-md flex-grow">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg text-on-surface tracking-widest uppercase">Bid History</h3>
+<span class="flex items-center gap-2 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">Live Activity</span>
+</span>
+</div>
+<div class="space-y-3 max-h-[300px] overflow-y-auto custom-scrollbar pr-2" id="bid-history-container">
+<!-- History Items are dynamically inserted here -->
+</div>
+</div>
+</div>
+</div>
+<!-- Live Activity Feed (Full Width Below) -->
+<div class="mt-section-gap pt-stack-lg border-t border-outline-variant/10">
+<div class="flex items-center justify-between mb-stack-lg">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">GLOBAL ACTIVITY FEED</h2>
+<div class="h-px flex-grow mx-8 bg-gradient-to-r from-outline-variant/40 to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Activity Card -->
+<div class="group flex gap-4 p-4 hover:bg-surface-container-low transition-colors duration-500 cursor-pointer">
+<div class="w-16 h-16 shrink-0 border border-outline-variant/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail of a luxury diamond ring photographed in a minimalist style on a black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9b7DZpoNiFgtx7foA3te1Zfjut3fb41HMHaSh-f7K3MdeAKCI9VKNvhzwWNFP62fkaNo5qGeH9TKgawI0d-d2nO3GGyKS5D8g73WvOsJqZfl1hTF5E5_VtbMLhZ1KAtS2_TQAfL-cGhmKLIVH0JtuDkRDUCJ5K1la34clfZijQGnRTpNZPujj-aS1Y2EMyDfx5HiF8dvjwB0abT6xcaRyijVtR1fRfXd4bGMML5_il5AFl8BqlOd2oeqgD2VncGnlckcYHyJRAA"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Lot 112 SOLD</p>
+<p class="font-label-lg text-label-lg text-on-surface">$12,400</p>
+<p class="text-[10px] text-primary/80 mt-1">HONG KONG DESK</p>
+</div>
+</div>
+<div class="group flex gap-4 p-4 hover:bg-surface-container-low transition-colors duration-500 cursor-pointer">
+<div class="w-16 h-16 shrink-0 border border-outline-variant/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Thumbnail of a high-end luxury vehicle interior featuring fine leather and chrome detailing under dramatic studio light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoY1sMmHEeJU6Lz4icQ5M2YYl95pz4jihevbm7YFI9CyRe2tYuAxUAMVeeBj_S6dDad8wor4gIkgym5R01jQT5czJJwq2VuX1Imk0v8v3gTcEoRsLffVEUkXFjUaAwF3Y3ujX5q_FVtqEeM2a89leRPeb8lykhUV4cYkIou0eyh_Iv97O8UKmEv5ldVe_e7EVnyhkB7RaqJIQsvcPkesEJ-SDb8ukaY_GJaGC2aI6rIJx7THPUi1Uz6vU6j_b4nxpb_RsM_pVkgQ"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Lot 089 NEW BID</p>
+<p class="font-label-lg text-label-lg text-on-surface">$890,000</p>
+<p class="text-[10px] text-primary/80 mt-1">GENEVA DESK</p>
+</div>
+</div>
+<div class="group flex gap-4 p-4 hover:bg-surface-container-low transition-colors duration-500 cursor-pointer">
+<div class="w-16 h-16 shrink-0 border border-outline-variant/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Minimalist abstract canvas painting with heavy texture and gold leaf accents in a dark studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTphzvxbLW9fdDIvpyCBZhje2Dt7t85DQDXpXMLjCr24OB1vcLmo808uHFqv4_jAUa0WY00Odmde5IG0_zWs2L5j2XYgoVO-5peyK_R1gvWf3_VWN43IWSkmcZ9sXPWKHKcE8VMHKi2r6sQLp7w3SmrLSMFH-dFu__ch9FYgt2um2ljuY7TmKTe7-51kJWy43PQVpTEs0An2L9yZYfnrAULNDT3vSm_ylyqY63JbnX64Mill4aoIz3Tx7dLlnlRZWergmg1kdRPg"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Lot 204 NEW BID</p>
+<p class="font-label-lg text-label-lg text-on-surface">$54,200</p>
+<p class="text-[10px] text-primary/80 mt-1">NEW YORK DESK</p>
+</div>
+</div>
+<div class="group flex gap-4 p-4 hover:bg-surface-container-low transition-colors duration-500 cursor-pointer">
+<div class="w-16 h-16 shrink-0 border border-outline-variant/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Elegant luxury wristwatch closeup with mechanical gears visible through a sapphire glass case back." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-Fqn4hWNw8VCkyJsB3E8N1AUESYLH0T6Lln3geyyYCPAvofAH6CLMsd_kctkqvGKXjRodmm0J4o22TqrNw-2SLL36vmnBM9bqwVvLmAdrdlcbT_snCndfKk9pbFdvw0OHnscN5zBmg5EB99nN6plbfdYZnhi6WN8uUQgsqQf7QtVqWxTdT8BFK9pG8yh9QQldFraT5oJjtQJ7i5X2HRg_rBv-keA_MNR9l60_1S_bEHPSXLRSMaWLJN15niXYQbqLRsfPP40Syg"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Lot 331 SOLD</p>
+<p class="font-label-lg text-label-lg text-on-surface">$1.2M</p>
+<p class="text-[10px] text-primary/80 mt-1">LONDON DESK</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap border-t border-outline-variant/10 bg-surface-container-lowest">
+<div class="flex flex-col items-center gap-stack-lg px-margin-desktop w-full">
+<h2 class="font-display-lg text-headline-md text-primary tracking-[0.2em] uppercase">LUMIÈRE AUCTIONS</h2>
+<div class="flex flex-wrap justify-center gap-8 md:gap-stack-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY POLICY</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS OF SALE</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">SHIPPING</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">CONTACT</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/60 tracking-widest text-center mt-4">© 2024 LUMIÈRE AUCTIONS. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+
+<script>
+    // Interaction for inputs
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('focus', () => {
+            input.parentElement.classList.add('ring-1', 'ring-primary/20');
+        });
+        input.addEventListener('blur', () => {
+            input.parentElement.classList.remove('ring-1', 'ring-primary/20');
+        });
+    });
+</script>
+
+<script>
+    // Setup beautiful toast functions and details fetching
+    function showErrorToast(message) {
+        let toast = document.getElementById('gold-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'gold-toast';
+            toast.className = 'fixed bottom-8 right-8 z-50 transform translate-y-10 opacity-0 transition-all duration-500 pointer-events-none';
+            toast.innerHTML = `
+                <div class="bg-[#201f1f] border border-[#e6c364] text-[#e6c364] px-6 py-4 shadow-2xl flex items-center gap-3 rounded-none">
+                    <span class="material-symbols-outlined text-[#e6c364]">warning</span>
+                    <span id="toast-message" class="font-body-md tracking-wide"></span>
+                </div>
+            `;
+            document.body.appendChild(toast);
+        }
+        document.getElementById('toast-message').textContent = message;
+        
+        toast.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+        toast.classList.add('opacity-100', 'translate-y-0');
+        
+        setTimeout(() => {
+            toast.classList.remove('opacity-100', 'translate-y-0');
+            toast.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+        }, 4000);
+    }
+
+    // Top Navigation Bar updates with token check
+    const token = localStorage.getItem('lumiere_token');
+    const navAuthContainer = document.querySelector('nav .flex.items-center.gap-stack-md');
+    if (navAuthContainer) {
+        if (token) {
+            navAuthContainer.innerHTML = `
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300" href="dashboard.html">DASHBOARD</a>
+                <button id="logout-btn" class="px-6 py-2 bg-outline-variant/20 text-on-surface font-label-lg text-label-lg tracking-widest hover:bg-outline-variant/40 transition-all">LOGOUT</button>
+            `;
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                localStorage.removeItem('lumiere_token');
+                window.location.href = 'login.html';
+            });
+        } else {
+            navAuthContainer.innerHTML = `
+                <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300" href="login.html">LOGIN</a>
+                <a class="px-6 py-2 bg-primary text-on-primary font-label-lg text-label-lg tracking-widest gold-shimmer transition-all" href="login.html">REGISTER</a>
+            `;
+        }
+    }
+
+    // Helper to format currency
+    function formatCurrency(amount) {
+        return '$' + Number(amount).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    }
+
+    // Relative Time calculation
+    function relativeTime(isoString) {
+        const diff = new Date() - new Date(isoString);
+        const mins = Math.floor(diff / 60000);
+        if (mins < 1) return 'Just Now';
+        if (mins < 60) return `${mins}m ago`;
+        const hrs = Math.floor(mins / 60);
+        if (hrs < 24) return `${hrs}h ago`;
+        return new Date(isoString).toLocaleDateString();
+    }
+
+    // Parse lot ID from the URL params (?id=)
+    const urlParams = new URLSearchParams(window.location.search);
+    const auctionId = urlParams.get('id');
+
+    if (!auctionId) {
+        showErrorToast('No lot ID provided in URL parameters.');
+    } else {
+        initAuctionPage(auctionId);
+    }
+
+    let endsAtTime = null;
+    let countdownInterval = null;
+
+    // Start timer using dynamic end dates
+    function startCountdownTimer(endsAtString) {
+        endsAtTime = new Date(endsAtString).getTime();
+        
+        function update() {
+            const now = new Date().getTime();
+            const distance = endsAtTime - now;
+            const timerElement = document.getElementById('countdown');
+            if (!timerElement) return;
+
+            if (distance < 0) {
+                timerElement.innerText = "CLOSED";
+                timerElement.classList.add('text-red-400');
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const hours = Math.floor(distance / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const hStr = hours.toString().padStart(2, '0');
+            const mStr = minutes.toString().padStart(2, '0');
+            const sStr = seconds.toString().padStart(2, '0');
+
+            timerElement.innerText = `${hStr}:${mStr}:${sStr}`;
+        }
+
+        clearInterval(countdownInterval);
+        update();
+        countdownInterval = setInterval(update, 1000);
+    }
+
+    // Dynamic History prepending with smooth fade-in
+    function addBidToHistory(bid, isPrepend = true) {
+        const historyContainer = document.getElementById('bid-history-container');
+        if (!historyContainer) return;
+
+        const bidCard = document.createElement('div');
+        bidCard.className = 'flex items-center justify-between p-4 bg-surface-container-lowest/50 border border-outline-variant/5 transition-all duration-500 opacity-0 transform -translate-y-2';
+
+        const bidderLabel = bid.bidder_name || `Collector #${bid.bidder_id}`;
+        const timeLabel = relativeTime(bid.placed_at || new Date().toISOString());
+        const amountFormatted = formatCurrency(bid.amount);
+
+        bidCard.innerHTML = `
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-primary text-sm">person</span>
+                </div>
+                <div>
+                    <p class="font-label-sm text-label-sm text-on-surface">${bidderLabel}</p>
+                    <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">${timeLabel}</p>
+                </div>
+            </div>
+            <div class="font-label-lg text-label-lg text-primary">${amountFormatted}</div>
+        `;
+
+        if (isPrepend) {
+            historyContainer.insertBefore(bidCard, historyContainer.firstChild);
+        } else {
+            historyContainer.appendChild(bidCard);
+        }
+
+        setTimeout(() => {
+            bidCard.classList.remove('opacity-0', '-translate-y-2');
+        }, 50);
+    }
+
+    // Dynamic price display updates with gold sparkle transition
+    function updatePriceOnPage(amount) {
+        const display = document.getElementById('current-bid-display');
+        if (!display) return;
+        display.classList.remove('animate-pulse');
+        display.textContent = formatCurrency(amount);
+        
+        // Add visual flash effect
+        display.classList.add('text-white');
+        setTimeout(() => {
+            display.classList.remove('text-white');
+        }, 300);
+        
+        // Update input placeholder to suggest next bid value
+        const input = document.getElementById('bid-amount-input');
+        if (input) {
+            input.placeholder = Math.ceil(amount + 100).toString();
+        }
+    }
+
+    async function initAuctionPage(id) {
+        try {
+            // 1. Fetch auction details
+            const res = await fetch(`http://localhost:8000/auctions/${id}`);
+            if (!res.ok) throw new Error('Auction lot details could not be loaded.');
+            const auction = await res.ok ? await res.json() : null;
+
+            if (auction) {
+                document.getElementById('auction-title').textContent = auction.title.toUpperCase();
+                document.getElementById('auction-description').textContent = auction.description || '';
+                document.getElementById('auction-lot').textContent = `LOT ${auction.lot_number} • ${auction.category || 'MASTERPIECE'}`;
+                
+                if (auction.image_url) {
+                    document.getElementById('auction-image').src = auction.image_url;
+                }
+
+                // Reserve price status message
+                const reserveText = document.getElementById('reserve-text');
+                if (auction.reserve_price) {
+                    const currentVal = auction.current_bid || auction.starting_price;
+                    if (currentVal >= auction.reserve_price) {
+                        reserveText.textContent = "Reserve price met. Auction is live.";
+                        reserveText.className = "text-center font-label-sm text-label-sm text-primary";
+                    } else {
+                        reserveText.textContent = `Reserve price: ${formatCurrency(auction.reserve_price)} (Not yet met)`;
+                        reserveText.className = "text-center font-label-sm text-label-sm text-on-surface-variant";
+                    }
+                } else {
+                    reserveText.textContent = "No reserve price. Highest bidder wins.";
+                }
+
+                updatePriceOnPage(auction.current_bid || auction.starting_price);
+                startCountdownTimer(auction.ends_at);
+            }
+
+            // 2. Fetch initial bid history
+            const historyRes = await fetch(`http://localhost:8000/bids/${id}`);
+            if (historyRes.ok) {
+                const bids = await historyRes.json();
+                const container = document.getElementById('bid-history-container');
+                if (container) container.innerHTML = '';
+                
+                if (bids && bids.length > 0) {
+                    bids.forEach(b => {
+                        // Append oldest to newest or prepend newest?
+                        // The endpoint returns newest first. We can prepend newest first or append to keep that order.
+                        addBidToHistory(b, false);
+                    });
+                } else {
+                    const container = document.getElementById('bid-history-container');
+                    if (container) {
+                        container.innerHTML = `<p class="text-center font-label-sm text-on-surface-variant/60 py-6 uppercase tracking-widest">No bids placed yet. Be the first!</p>`;
+                    }
+                }
+            }
+
+            // 3. Connect real-time WebSocket room
+            const wsUrl = `ws://localhost:8000/ws/${id}`;
+            const socket = new WebSocket(wsUrl);
+
+            socket.onopen = () => {
+                console.log(`Connected to real-time bidding room for lot #${id}`);
+            };
+
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.event === 'new_bid') {
+                        // Update current bid visual components
+                        updatePriceOnPage(data.amount);
+
+                        // Clear empty state message if it is there
+                        const container = document.getElementById('bid-history-container');
+                        if (container && container.textContent.includes('No bids placed yet')) {
+                            container.innerHTML = '';
+                        }
+
+                        // Prepend real-time bid card to feed
+                        addBidToHistory({
+                            bidder_name: data.bidder,
+                            amount: data.amount,
+                            placed_at: data.timestamp
+                        }, true);
+
+                        // Update reserve price texts dynamically
+                        const reserveText = document.getElementById('reserve-text');
+                        if (auction && auction.reserve_price) {
+                            if (data.amount >= auction.reserve_price) {
+                                reserveText.textContent = "Reserve price met. Auction is live.";
+                                reserveText.className = "text-center font-label-sm text-label-sm text-primary";
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.error('Error handling WebSocket frame:', e);
+                }
+            };
+
+            socket.onclose = () => {
+                console.log('Real-time connection closed. Bidding remains active.');
+            };
+
+            // 4. Handle "Place Bid" click action
+            document.getElementById('place-bid-btn').addEventListener('click', async () => {
+                if (!token) {
+                    showErrorToast('Please login to place a bid on this masterpiece.');
+                    setTimeout(() => {
+                        window.location.href = `login.html?redirect=auction-detail.html?id=${id}`;
+                    }, 1500);
+                    return;
+                }
+
+                const bidInput = document.getElementById('bid-amount-input');
+                const amount = parseFloat(bidInput.value);
+
+                if (isNaN(amount) || amount <= 0) {
+                    showErrorToast('Please enter a valid positive numeric bid amount.');
+                    return;
+                }
+
+                try {
+                    const postRes = await fetch(`http://localhost:8000/bids/${id}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ amount: amount })
+                    });
+
+                    if (!postRes.ok) {
+                        const err = await postRes.json();
+                        throw new Error(err.detail || 'Could not place your bid.');
+                    }
+
+                    // On success, clear the input
+                    bidInput.value = '';
+                    // WebSocket automatically receives and renders the brand new bid, so no local feed rendering is strictly required!
+                } catch (err) {
+                    showErrorToast(err.message);
+                }
+            });
+
+        } catch (err) {
+            showErrorToast(err.message);
+        }
+    }
+</script>
+<!-- ═══ LUMIÈRE Premium Animations Engine ═══ -->
+<script>
+(function() {
+    'use strict';
+
+    // ─── 1. FADE-UP ANIMATION ON PAGE LOAD ───────────────────────────────
+    const fadeUpCSS = document.createElement('style');
+    fadeUpCSS.textContent = `
+        @keyframes lumieresFadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .lumiere-fade-up {
+            opacity: 0;
+            animation: lumieresFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        /* Gold shimmer sweep for buttons */
+        @keyframes lumiereGoldSweep {
+            0%   { left: -100%; }
+            100% { left: 100%; }
+        }
+        .lumiere-btn-shimmer { position: relative; overflow: hidden; }
+        .lumiere-btn-shimmer::before {
+            content: '';
+            position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(230,195,100,0.35), transparent);
+            transition: none; pointer-events: none;
+        }
+        .lumiere-btn-shimmer:hover::before {
+            animation: lumiereGoldSweep 0.7s ease-in-out;
+        }
+        /* Page transition overlay */
+        #lumiere-page-transition {
+            position: fixed; inset: 0; z-index: 99999;
+            background: #0e0e0e;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #lumiere-page-transition.active {
+            opacity: 1; pointer-events: all;
+        }
+        /* Gold toast notifications */
+        #lumiere-toast-rack {
+            position: fixed; bottom: 24px; right: 24px; z-index: 100000;
+            display: flex; flex-direction: column; gap: 10px; pointer-events: none;
+        }
+        .lumiere-toast {
+            pointer-events: auto;
+            background: linear-gradient(135deg, #1a1a18 0%, #201f1f 100%);
+            border: 1px solid #e6c364;
+            color: #e6c364;
+            padding: 14px 22px;
+            font-family: Inter, sans-serif;
+            font-size: 14px; letter-spacing: 0.04em;
+            box-shadow: 0 8px 32px rgba(230,195,100,0.12), 0 0 0 1px rgba(230,195,100,0.08);
+            display: flex; align-items: center; gap: 10px;
+            opacity: 0; transform: translateY(16px) scale(0.96);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .lumiere-toast.show {
+            opacity: 1; transform: translateY(0) scale(1);
+        }
+        .lumiere-toast .toast-icon {
+            font-size: 20px; flex-shrink: 0;
+        }
+    `;
+    document.head.appendChild(fadeUpCSS);
+
+    // Apply fade-up to all major sections with stagger
+    window.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('main > *, main section, main > div, #auth-container, footer');
+        sections.forEach((el, i) => {
+            el.classList.add('lumiere-fade-up');
+            el.style.animationDelay = `${0.08 + i * 0.10}s`;
+        });
+    });
+
+    // ─── 2. GOLD SHIMMER ON ALL BUTTONS ON HOVER ─────────────────────────
+    window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button, a[class*="bg-primary"], input[type="submit"]').forEach(btn => {
+            btn.classList.add('lumiere-btn-shimmer');
+        });
+    });
+
+    // ─── 3. SMOOTH PAGE TRANSITIONS ──────────────────────────────────────
+    const overlay = document.createElement('div');
+    overlay.id = 'lumiere-page-transition';
+    document.body.appendChild(overlay);
+
+    // Fade-in on page arrival
+    overlay.classList.add('active');
+    window.addEventListener('load', () => {
+        requestAnimationFrame(() => overlay.classList.remove('active'));
+    });
+
+    // Intercept internal navigation links
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('javascript') || href.startsWith('http') && !href.includes(location.host)) return;
+        // Only intercept local .html links
+        if (!href.endsWith('.html') && !href.startsWith('/') && !href.endsWith('/')) return;
+        e.preventDefault();
+        overlay.classList.add('active');
+        setTimeout(() => { window.location.href = href; }, 420);
+    });
+
+    // ─── 4. COUNTDOWN TIMER TICKING EVERY SECOND ─────────────────────────
+    // Automatically find and animate any countdown elements already on the page
+    setInterval(() => {
+        document.querySelectorAll('[id*="countdown"], [class*="countdown"]').forEach(el => {
+            // Add a subtle pulse on each tick
+            el.style.transition = 'transform 0.15s ease';
+            el.style.transform = 'scale(1.02)';
+            setTimeout(() => { el.style.transform = 'scale(1)'; }, 150);
+        });
+    }, 1000);
+
+    // ─── 5. GOLD TOAST NOTIFICATION SYSTEM ────────────────────────────────
+    // Create toast container
+    const toastRack = document.createElement('div');
+    toastRack.id = 'lumiere-toast-rack';
+    document.body.appendChild(toastRack);
+
+    window.lumiereToast = function(message, icon = '✦') {
+        const toast = document.createElement('div');
+        toast.className = 'lumiere-toast';
+        toast.innerHTML = `<span class="toast-icon">${icon}</span><span>${message}</span>`;
+        toastRack.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('show'));
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 500);
+        }, 4000);
+    };
+
+    // Show a welcome toast on page load
+    window.addEventListener('load', () => {
+        const name = localStorage.getItem('lumiere_name');
+        if (name && !location.pathname.includes('login')) {
+            setTimeout(() => window.lumiereToast(`Welcome back, ${name}`, '👋'), 800);
+        }
+    });
+
+})();
+</script>
+</body></html>

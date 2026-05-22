@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+lumiere.db
+.idea/
+.vscode/
+*.log

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | LUMIÈRE AUCTIONS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "error": "#ffb4ab",
+                    "outline": "#99907e",
+                    "surface-variant": "#353534",
+                    "on-background": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "primary": "#e6c364",
+                    "surface": "#131313",
+                    "primary-container": "#c9a84c",
+                    "on-tertiary": "#313030",
+                    "background": "#131313",
+                    "on-primary-fixed": "#241a00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "primary-fixed-dim": "#e6c364",
+                    "error-container": "#93000a",
+                    "surface-dim": "#131313",
+                    "on-tertiary-container": "#40403f",
+                    "inverse-primary": "#755b00",
+                    "outline-variant": "#4d4637",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-primary-container": "#503d00",
+                    "tertiary": "#c9c6c6",
+                    "secondary-container": "#4a4949",
+                    "surface-tint": "#e6c364",
+                    "surface-container-highest": "#353534",
+                    "on-surface-variant": "#d0c5b2",
+                    "on-secondary-container": "#bab8b7",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface-bright": "#3a3939",
+                    "on-primary": "#3d2e00",
+                    "primary-fixed": "#ffe08f",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "secondary": "#c8c6c5",
+                    "surface-container-low": "#1c1b1b",
+                    "inverse-on-surface": "#313030",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e5e2e1",
+                    "on-surface": "#e5e2e1",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-secondary": "#313030",
+                    "tertiary-container": "#adabab",
+                    "on-secondary-fixed-variant": "#474646",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#201f1f",
+                    "tertiary-fixed-dim": "#c8c6c5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "container-max": "1440px",
+                    "margin-mobile": "20px",
+                    "section-gap": "128px",
+                    "margin-desktop": "64px",
+                    "gutter": "32px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        
+        .gold-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gold-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 20%,
+                rgba(230, 195, 100, 0.1) 50%,
+                transparent 80%
+            );
+            transform: rotate(30deg);
+            transition: transform 0.8s ease-in-out;
+            pointer-events: none;
+        }
+        
+        .gold-shimmer:hover::after {
+            transform: translate(50%, 50%) rotate(30deg);
+        }
+
+        .cinematic-bg {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), url('https://images.unsplash.com/photo-1549490349-8643362247b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bloom-focus:focus {
+            outline: none;
+            border-color: #e6c364;
+            box-shadow: 0 0 8px rgba(230, 195, 100, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-6 md:px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-headline-sm text-primary uppercase tracking-[0.2em]" href="/">LUMIÈRE AUCTIONS</a>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LIVE AUCTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVATE SALES</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ABOUT</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LOGIN</a>
+<a class="font-label-lg text-label-lg tracking-widest bg-primary text-on-primary px-6 py-2 transition-all duration-500 hover:bg-primary-container" href="#">REGISTER</a>
+</div>
+</div>
+</nav>
+<!-- Main Content: Login Hero -->
+<main class="flex-grow cinematic-bg relative flex items-center justify-center py-section-gap px-margin-mobile">
+<!-- Overlay Texture Description -->
+<div class="hidden" data-alt="A cinematic, high-contrast dark background of a luxury art gallery. The scene features deep shadows and soft spotlighting on a distant marble statue, creating an atmosphere of exclusivity and mystery. The color palette is strictly deep blacks, charcoal greys, and faint warm highlights. The mood is sophisticated and quiet luxury."></div>
+<div class="w-full max-w-[480px] bg-surface-container-lowest/90 backdrop-blur-2xl p-stack-lg md:p-12 border border-outline-variant/10 shadow-2xl relative z-10" id="auth-container">
+<!-- Form Header -->
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Welcome Back</h1>
+<p class="font-body-md text-on-surface-variant tracking-wide">Enter the inner circle of fine art and rare collectibles.</p>
+</div>
+<!-- Tabs: Login / Register -->
+<div class="flex border-b border-outline-variant/10 mb-stack-lg">
+<button class="flex-1 pb-4 font-label-lg text-label-lg tracking-widest text-primary border-b-2 border-primary" id="login-tab" onclick="toggleAuth('login')">LOGIN</button>
+<button class="flex-1 pb-4 font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" id="register-tab" onclick="toggleAuth('register')">REGISTER</button>
+</div>
+<!-- Login Form -->
+<form class="space-y-stack-md" id="login-form">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Email Address</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 px-4 py-3 text-on-surface font-body-md bloom-focus transition-all" placeholder="collector@lumiere.com" type="email"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Password</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Forgot?</a>
+</div>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 px-4 py-3 text-on-surface font-body-md bloom-focus transition-all" placeholder="••••••••" type="password"/>
+</div>
+<div class="flex items-center gap-3 py-2">
+<input class="w-4 h-4 rounded-none bg-surface-container-low border-outline-variant text-primary focus:ring-primary-container" id="remember" type="checkbox"/>
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="remember">Stay signed in for 30 days</label>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 font-label-lg text-label-lg tracking-[0.2em] uppercase gold-shimmer transition-transform active:scale-[0.98]" type="submit">
+                    ENTER GALLERY
+                </button>
+</form>
+<!-- Register Form (Hidden by default) -->
+<form class="hidden space-y-stack-md" id="register-form">
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">First Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 px-4 py-3 text-on-surface font-body-md bloom-focus transition-all" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Last Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 px-4 py-3 text-on-surface font-body-md bloom-focus transition-all" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Email Address</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 px-4 py-3 text-on-surface font-body-md bloom-focus transition-all" placeholder="collector@lumiere.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Secure Password</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 px-4 py-3 text-on-surface font-body-md bloom-focus transition-all" placeholder="••••••••" type="password"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
+                    By registering, you agree to our <a class="text-primary hover:underline" href="#">Terms of Sale</a> and confirm you are of legal bidding age.
+                </p>
+<button class="w-full bg-primary text-on-primary py-4 font-label-lg text-label-lg tracking-[0.2em] uppercase gold-shimmer transition-transform active:scale-[0.98]" type="submit">
+                    CREATE ACCOUNT
+                </button>
+</form>
+<!-- Security Footer -->
+<div class="mt-stack-lg pt-stack-md border-t border-outline-variant/10 flex items-center justify-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">SSL Encrypted Secure Access</span>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest py-stack-lg border-t border-outline-variant/10">
+<div class="flex flex-col items-center gap-stack-lg px-6 md:px-margin-desktop w-full">
+<div class="font-display-lg text-headline-md text-primary tracking-widest">LUMIÈRE</div>
+<div class="flex flex-wrap justify-center gap-stack-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY POLICY</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS OF SALE</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">SHIPPING</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">CONTACT</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">© 2024 LUMIÈRE AUCTIONS. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<script>
+const API = 'http://localhost:8000';
+
+function showToast(msg, isError=false) {
+  const d = document.createElement('div');
+  d.style.cssText = 'position:fixed;top:100px;right:24px;z-index:9999;background:#141414;border:1px solid '+(isError?'#ef4444':'#C9A84C')+';padding:14px 20px;color:#e5e2e1;font-family:Inter,sans-serif;font-size:13px;min-width:260px;';
+  d.textContent = msg;
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(), 3500);
+}
+
+function toggleAuth(type) {
+  document.getElementById('login-form').classList.toggle('hidden', type!=='login');
+  document.getElementById('register-form').classList.toggle('hidden', type!=='register');
+  document.getElementById('login-tab').classList.toggle('text-primary', type==='login');
+  document.getElementById('register-tab').classList.toggle('text-primary', type==='register');
+}
+
+document.getElementById('login-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const inputs = e.target.querySelectorAll('input');
+  const body = new URLSearchParams();
+  body.append('username', inputs[0].value);
+  body.append('password', inputs[1].value);
+  try {
+    const r = await fetch(API+'/auth/login', {method:'POST', body});
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.detail||'Login failed');
+    localStorage.setItem('lumiere_token', data.access_token);
+    localStorage.setItem('lumiere_name', data.full_name||'Collector');
+    location.href = 'auctions.html';
+  } catch(err) { showToast(err.message, true); }
+});
+
+document.getElementById('register-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const inputs = e.target.querySelectorAll('input');
+  const full_name = inputs[0].value + ' ' + inputs[1].value;
+  try {
+    const r = await fetch(API+'/auth/register', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({full_name, email: inputs[2].value, password: inputs[3].value})
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.detail||'Registration failed');
+    localStorage.setItem('lumiere_token', data.access_token);
+    localStorage.setItem('lumiere_name', data.full_name||'Collector');
+    location.href = 'auctions.html';
+  } catch(err) { showToast(err.message, true); }
+});
+
+document.addEventListener('mousemove', (e) => {
+  const el = document.querySelector('.cinematic-bg');
+  if(el) { const x=(e.clientX/window.innerWidth-.5)*5; const y=(e.clientY/window.innerHeight-.5)*5; el.style.backgroundPosition=`calc(50% + ${x}px) calc(50% + ${y}px)`; }
+});
+</script>
+</body></html>

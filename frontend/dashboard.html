@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Dashboard | LUMIÈRE AUCTIONS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "error": "#ffb4ab",
+                    "outline": "#99907e",
+                    "surface-variant": "#353534",
+                    "on-background": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "primary": "#e6c364",
+                    "surface": "#131313",
+                    "primary-container": "#c9a84c",
+                    "on-tertiary": "#313030",
+                    "background": "#131313",
+                    "on-primary-fixed": "#241a00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "primary-fixed-dim": "#e6c364",
+                    "error-container": "#93000a",
+                    "surface-dim": "#131313",
+                    "on-tertiary-container": "#40403f",
+                    "inverse-primary": "#755b00",
+                    "outline-variant": "#4d4637",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-primary-container": "#503d00",
+                    "tertiary": "#c9c6c6",
+                    "secondary-container": "#4a4949",
+                    "surface-tint": "#e6c364",
+                    "surface-container-highest": "#353534",
+                    "on-surface-variant": "#d0c5b2",
+                    "on-secondary-container": "#bab8b7",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface-bright": "#3a3939",
+                    "on-primary": "#3d2e00",
+                    "primary-fixed": "#ffe08f",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "secondary": "#c8c6c5",
+                    "surface-container-low": "#1c1b1b",
+                    "inverse-on-surface": "#313030",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e5e2e1",
+                    "on-surface": "#e5e2e1",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-secondary": "#313030",
+                    "tertiary-container": "#adabab",
+                    "on-secondary-fixed-variant": "#474646",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#201f1f",
+                    "tertiary-fixed-dim": "#c8c6c5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "container-max": "1440px",
+                    "margin-mobile": "20px",
+                    "section-gap": "128px",
+                    "margin-desktop": "64px",
+                    "gutter": "32px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #E5E2E1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .gold-shimmer {
+            background: linear-gradient(90deg, rgba(230,195,100,0) 0%, rgba(230,195,100,0.1) 50%, rgba(230,195,100,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 32px;
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(230, 195, 100, 0.3);
+            transform: translateY(-4px);
+        }
+        .status-pulse-green {
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-headline-sm text-primary uppercase tracking-[0.2em]" href="/">LUMIÈRE AUCTIONS</a>
+<div class="hidden md:flex gap-stack-lg">
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="auctions.html">LIVE AUCTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVATE SALES</a>
+<a class="font-label-lg text-label-lg tracking-widest text-primary border-b border-primary pb-1" href="dashboard.html">DASHBOARD</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform">notifications</button>
+<button id="logout-btn" class="px-6 py-2 bg-outline-variant/20 text-on-surface font-label-lg text-label-lg tracking-widest hover:bg-outline-variant/40 transition-all">LOGOUT</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-margin-desktop max-w-container-max mx-auto">
+<!-- Welcome Header -->
+<header class="mb-stack-lg">
+<h1 class="font-display-lg text-headline-lg text-primary mb-2 animate-pulse" id="user-welcome-name">Welcome...</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Your private dashboard for real-time bidding, collection management, and curated acquisition opportunities.</p>
+</header>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-section-gap">
+<div class="glass-card p-stack-lg border-l-4 border-l-primary">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Total Bids</span>
+<div class="font-display-lg text-headline-lg text-primary mt-2" id="stat-total-bids">-</div>
+</div>
+<div class="glass-card p-stack-lg">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Winning</span>
+<div class="font-display-lg text-headline-lg text-green-500 mt-2" id="stat-winning-count">-</div>
+</div>
+<div class="glass-card p-stack-lg">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Outbid</span>
+<div class="font-display-lg text-headline-lg text-error mt-2" id="stat-outbid-count">-</div>
+</div>
+<div class="glass-card p-stack-lg">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Total Value</span>
+<div class="font-display-lg text-headline-lg text-primary mt-2" id="stat-total-value">$-</div>
+</div>
+</section>
+<!-- Auctions Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg mb-section-gap">
+<!-- Winning Section -->
+<section>
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 status-pulse-green"></span>
+                        Auctions You're Winning
+                    </h2>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="auctions.html">VIEW ALL</a>
+</div>
+<div class="space-y-stack-md" id="winning-bids-container">
+    <!-- Dynamic Cards go here -->
+</div>
+</section>
+<!-- Outbid Section -->
+<section>
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-sm text-headline-sm text-error flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                        Outbid
+                    </h2>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="auctions.html">VIEW ALL</a>
+</div>
+<div class="space-y-stack-md" id="outbid-bids-container">
+    <!-- Dynamic Cards go here -->
+</div>
+</section>
+</div>
+<!-- History and Listings Tabs -->
+<section class="max-w-4xl mx-auto">
+<div class="flex gap-stack-lg border-b border-outline-variant/20 mb-stack-lg">
+<button class="pb-4 font-label-lg text-label-lg tracking-widest text-primary border-b-2 border-primary transition-all duration-300" id="tab-history">BID HISTORY</button>
+<button class="pb-4 font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300" id="tab-listings">MY LISTINGS</button>
+</div>
+<div class="space-y-stack-sm" id="tab-content">
+<!-- Bid History Table -->
+<div class="glass-card overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant/20">
+<th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Date</th>
+<th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Lot Name</th>
+<th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Amount</th>
+<th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+    <!-- Bids history dynamically filled -->
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap border-t border-outline-variant/10 bg-surface-container-lowest">
+<div class="flex flex-col items-center gap-stack-lg px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md text-primary">LUMIÈRE AUCTIONS</div>
+<div class="flex gap-stack-lg">
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY POLICY</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS OF SALE</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">SHIPPING</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">CONTACT</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/50">© 2024 LUMIÈRE AUCTIONS. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+
+<script>
+    // 1. Session and auth token check
+    const token = localStorage.getItem('lumiere_token');
+    if (!token) {
+        window.location.href = 'login.html';
+    }
+
+    // Logout function
+    document.getElementById('logout-btn').addEventListener('click', () => {
+        localStorage.removeItem('lumiere_token');
+        window.location.href = 'login.html';
+    });
+
+    // Currencies and formatting helper
+    function formatCurrency(amount) {
+        return '$' + Number(amount).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+
+    // Dynamic data fetch on page load
+    let allUserBids = [];
+    
+    async function loadDashboard() {
+        try {
+            // Fetch User metadata
+            const userRes = await fetch('http://localhost:8000/auth/me', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (userRes.ok) {
+                const user = await userRes.json();
+                const welcomeNameEl = document.getElementById('user-welcome-name');
+                welcomeNameEl.textContent = `Welcome, ${user.full_name}`;
+                welcomeNameEl.classList.remove('animate-pulse');
+            }
+
+            // Fetch bidding histories
+            const bidsRes = await fetch('http://localhost:8000/bids/my-bids', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!bidsRes.ok) throw new Error('Could not retrieve private bidding history.');
+            
+            allUserBids = await bidsRes.json();
+            processBids(allUserBids);
+        } catch (err) {
+            console.error('Dashboard setup error:', err);
+        }
+    }
+
+    function processBids(bids) {
+        // Group bids by auction room ID to retrieve the highest bid per auction room
+        const grouped = {};
+        bids.forEach(b => {
+            const auctionId = b.auction.id;
+            if (!grouped[auctionId] || grouped[auctionId].amount < b.amount) {
+                grouped[auctionId] = b;
+            }
+        });
+        const latestBidsPerAuction = Object.values(grouped);
+
+        let totalBidsCount = bids.length;
+        let winningCount = 0;
+        let outbidCount = 0;
+        let totalValue = 0;
+
+        const winningContainer = document.getElementById('winning-bids-container');
+        const outbidContainer = document.getElementById('outbid-bids-container');
+        winningContainer.innerHTML = '';
+        outbidContainer.innerHTML = '';
+
+        latestBidsPerAuction.forEach(b => {
+            const currentBidVal = b.auction.current_bid || b.amount;
+            const isWinning = b.amount === currentBidVal;
+            
+            totalValue += b.amount;
+
+            if (isWinning) {
+                winningCount++;
+                winningContainer.appendChild(createWinningCard(b));
+            } else {
+                outbidCount++;
+                outbidContainer.appendChild(createOutbidCard(b));
+            }
+        });
+
+        // Update stats visuals
+        document.getElementById('stat-total-bids').textContent = totalBidsCount.toString().padStart(2, '0');
+        document.getElementById('stat-winning-count').textContent = winningCount.toString().padStart(2, '0');
+        document.getElementById('stat-outbid-count').textContent = outbidCount.toString().padStart(2, '0');
+        
+        // Total value display formatted
+        const totalValueFormatted = totalValue >= 1000000 
+            ? `$${(totalValue / 1000000).toFixed(1)}M` 
+            : totalValue >= 1000 
+                ? `$${(totalValue / 1000).toFixed(0)}K` 
+                : `$${totalValue}`;
+        document.getElementById('stat-total-value').textContent = totalValueFormatted;
+
+        // Render initially the Tab History table
+        renderHistoryTable(bids);
+        
+        // Empty state alerts
+        if (winningCount === 0) {
+            winningContainer.innerHTML = `
+                <div class="glass-card p-stack-lg text-center border-dashed border-outline-variant/30">
+                    <p class="text-label-sm text-on-surface-variant uppercase tracking-widest">No Winning Masterpieces</p>
+                    <a class="mt-4 inline-block text-xs bg-primary text-background font-label-lg px-4 py-2 hover:bg-primary-container transition-all" href="auctions.html">EXPLORE LIVE LOTS</a>
+                </div>
+            `;
+        }
+        if (outbidCount === 0) {
+            outbidContainer.innerHTML = `
+                <div class="glass-card p-stack-lg text-center border-dashed border-outline-variant/30">
+                    <p class="text-label-sm text-on-surface-variant uppercase tracking-widest">No Outbid Lots</p>
+                </div>
+            `;
+        }
+    }
+
+    function createWinningCard(bid) {
+        const card = document.createElement('div');
+        card.className = 'glass-card flex gap-stack-md overflow-hidden group cursor-pointer';
+        card.onclick = () => { window.location.href = `auction-detail.html?id=${bid.auction.id}`; };
+        
+        const imageUrl = bid.auction.image_url || 'https://images.unsplash.com/photo-1547996160-81dfa63595aa';
+        
+        card.innerHTML = `
+            <div class="w-1/3 aspect-[4/5] overflow-hidden">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${imageUrl}"/>
+            </div>
+            <div class="flex-1 p-stack-md flex flex-col justify-between">
+                <div>
+                    <h3 class="font-headline-sm text-headline-sm text-primary mb-1 uppercase tracking-tight line-clamp-1">${bid.auction.title}</h3>
+                    <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">${bid.auction.lot_number}</p>
+                </div>
+                <div class="border-t border-outline-variant/20 pt-stack-sm mt-stack-sm">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant mb-1">YOUR BID</p>
+                            <p class="font-display-lg text-headline-sm text-green-500">${formatCurrency(bid.amount)}</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-label-sm font-label-sm text-on-surface-variant mb-1">STATUS</p>
+                            <p class="font-label-lg text-label-lg font-mono text-green-500 uppercase tracking-widest">WINNING</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        return card;
+    }
+
+    function createOutbidCard(bid) {
+        const card = document.createElement('div');
+        card.className = 'glass-card flex gap-stack-md overflow-hidden group cursor-pointer';
+        card.onclick = () => { window.location.href = `auction-detail.html?id=${bid.auction.id}`; };
+        
+        const imageUrl = bid.auction.image_url || 'https://images.unsplash.com/photo-1547996160-81dfa63595aa';
+        
+        card.innerHTML = `
+            <div class="w-1/3 aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${imageUrl}"/>
+            </div>
+            <div class="flex-1 p-stack-md flex flex-col justify-between">
+                <div>
+                    <h3 class="font-headline-sm text-headline-sm text-on-surface mb-1 uppercase tracking-tight line-clamp-1">${bid.auction.title}</h3>
+                    <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">${bid.auction.lot_number}</p>
+                </div>
+                <div class="border-t border-outline-variant/20 pt-stack-sm mt-stack-sm">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <p class="text-label-sm font-label-sm text-error mb-1">CURRENT BID</p>
+                            <p class="font-display-lg text-headline-sm text-error">${formatCurrency(bid.auction.current_bid || bid.amount)}</p>
+                        </div>
+                        <button class="bg-primary text-background font-label-lg px-4 py-2 hover:bg-primary-container transition-colors uppercase tracking-widest" onclick="event.stopPropagation(); window.location.href='auction-detail.html?id=${bid.auction.id}'">Bid Again</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        return card;
+    }
+
+    function renderHistoryTable(bids) {
+        const tbody = document.querySelector('#tab-content tbody');
+        if (!tbody) return;
+        
+        tbody.innerHTML = '';
+        if (bids.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="4" class="p-stack-md text-center text-on-surface-variant/60 uppercase tracking-widest py-12">No Bidding History Recorded</td>
+                </tr>
+            `;
+            return;
+        }
+
+        bids.forEach(b => {
+            const dateStr = new Date(b.placed_at).toLocaleDateString('en-US', { month: 'SHORT', day: '2-digit', year: 'numeric' }).toUpperCase();
+            const currentBidVal = b.auction.current_bid || b.amount;
+            const isWinning = b.amount === currentBidVal;
+            const statusClass = isWinning ? 'bg-green-500/20 text-green-500' : 'bg-error/20 text-error';
+            const statusText = isWinning ? 'Winning' : 'Outbid';
+
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-white/5 transition-colors cursor-pointer';
+            tr.onclick = () => { window.location.href = `auction-detail.html?id=${b.auction.id}`; };
+
+            tr.innerHTML = `
+                <td class="p-stack-md text-label-lg font-mono">${dateStr}</td>
+                <td class="p-stack-md font-headline-sm text-body-lg">${b.auction.title}</td>
+                <td class="p-stack-md text-primary font-mono">${formatCurrency(b.amount)}</td>
+                <td class="p-stack-md"><span class="px-2 py-1 ${statusClass} text-label-sm rounded uppercase">${statusText}</span></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Interactivity for Bidding tab vs My Listings tab
+    const tabHistory = document.getElementById('tab-history');
+    const tabListings = document.getElementById('tab-listings');
+    const tabContent = document.getElementById('tab-content');
+
+    tabHistory.addEventListener('click', () => {
+        tabHistory.classList.add('text-primary', 'border-primary');
+        tabHistory.classList.remove('text-on-surface-variant');
+        tabListings.classList.remove('text-primary', 'border-primary');
+        tabListings.classList.add('text-on-surface-variant');
+        
+        tabContent.innerHTML = `
+            <div class="glass-card overflow-hidden">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-outline-variant/20">
+                            <th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Date</th>
+                            <th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Lot Name</th>
+                            <th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Amount</th>
+                            <th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-outline-variant/10">
+                        <!-- Filled by helper -->
+                    </tbody>
+                </table>
+            </div>
+        `;
+        renderHistoryTable(allUserBids);
+    });
+
+    tabListings.addEventListener('click', () => {
+        tabListings.classList.add('text-primary', 'border-primary');
+        tabListings.classList.remove('text-on-surface-variant');
+        tabHistory.classList.remove('text-primary', 'border-primary');
+        tabHistory.classList.add('text-on-surface-variant');
+        
+        // Render simple user listings (placeholder as designed)
+        tabContent.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+                <div class="glass-card p-stack-md flex justify-between items-center">
+                    <div>
+                        <p class="font-headline-sm text-primary uppercase">Brancusi-style Bronze Cast</p>
+                        <p class="text-label-sm text-on-surface-variant uppercase tracking-widest">LISTED ON SEP 30 • ENDS IN 2 DAYS</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-label-sm text-on-surface-variant uppercase tracking-widest">CURRENT BID</p>
+                        <p class="font-display-lg text-headline-sm text-primary">$320,000</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    // Run setup
+    loadDashboard();
+</script>
+<!-- ═══ LUMIÈRE Premium Animations Engine ═══ -->
+<script>
+(function() {
+    'use strict';
+
+    // ─── 1. FADE-UP ANIMATION ON PAGE LOAD ───────────────────────────────
+    const fadeUpCSS = document.createElement('style');
+    fadeUpCSS.textContent = `
+        @keyframes lumieresFadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .lumiere-fade-up {
+            opacity: 0;
+            animation: lumieresFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        /* Gold shimmer sweep for buttons */
+        @keyframes lumiereGoldSweep {
+            0%   { left: -100%; }
+            100% { left: 100%; }
+        }
+        .lumiere-btn-shimmer { position: relative; overflow: hidden; }
+        .lumiere-btn-shimmer::before {
+            content: '';
+            position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(230,195,100,0.35), transparent);
+            transition: none; pointer-events: none;
+        }
+        .lumiere-btn-shimmer:hover::before {
+            animation: lumiereGoldSweep 0.7s ease-in-out;
+        }
+        /* Page transition overlay */
+        #lumiere-page-transition {
+            position: fixed; inset: 0; z-index: 99999;
+            background: #0e0e0e;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #lumiere-page-transition.active {
+            opacity: 1; pointer-events: all;
+        }
+        /* Gold toast notifications */
+        #lumiere-toast-rack {
+            position: fixed; bottom: 24px; right: 24px; z-index: 100000;
+            display: flex; flex-direction: column; gap: 10px; pointer-events: none;
+        }
+        .lumiere-toast {
+            pointer-events: auto;
+            background: linear-gradient(135deg, #1a1a18 0%, #201f1f 100%);
+            border: 1px solid #e6c364;
+            color: #e6c364;
+            padding: 14px 22px;
+            font-family: Inter, sans-serif;
+            font-size: 14px; letter-spacing: 0.04em;
+            box-shadow: 0 8px 32px rgba(230,195,100,0.12), 0 0 0 1px rgba(230,195,100,0.08);
+            display: flex; align-items: center; gap: 10px;
+            opacity: 0; transform: translateY(16px) scale(0.96);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .lumiere-toast.show {
+            opacity: 1; transform: translateY(0) scale(1);
+        }
+        .lumiere-toast .toast-icon {
+            font-size: 20px; flex-shrink: 0;
+        }
+    `;
+    document.head.appendChild(fadeUpCSS);
+
+    // Apply fade-up to all major sections with stagger
+    window.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('main > *, main section, main > div, #auth-container, footer');
+        sections.forEach((el, i) => {
+            el.classList.add('lumiere-fade-up');
+            el.style.animationDelay = `${0.08 + i * 0.10}s`;
+        });
+    });
+
+    // ─── 2. GOLD SHIMMER ON ALL BUTTONS ON HOVER ─────────────────────────
+    window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button, a[class*="bg-primary"], input[type="submit"]').forEach(btn => {
+            btn.classList.add('lumiere-btn-shimmer');
+        });
+    });
+
+    // ─── 3. SMOOTH PAGE TRANSITIONS ──────────────────────────────────────
+    const overlay = document.createElement('div');
+    overlay.id = 'lumiere-page-transition';
+    document.body.appendChild(overlay);
+
+    // Fade-in on page arrival
+    overlay.classList.add('active');
+    window.addEventListener('load', () => {
+        requestAnimationFrame(() => overlay.classList.remove('active'));
+    });
+
+    // Intercept internal navigation links
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('javascript') || href.startsWith('http') && !href.includes(location.host)) return;
+        // Only intercept local .html links
+        if (!href.endsWith('.html') && !href.startsWith('/') && !href.endsWith('/')) return;
+        e.preventDefault();
+        overlay.classList.add('active');
+        setTimeout(() => { window.location.href = href; }, 420);
+    });
+
+    // ─── 4. COUNTDOWN TIMER TICKING EVERY SECOND ─────────────────────────
+    // Automatically find and animate any countdown elements already on the page
+    setInterval(() => {
+        document.querySelectorAll('[id*="countdown"], [class*="countdown"]').forEach(el => {
+            // Add a subtle pulse on each tick
+            el.style.transition = 'transform 0.15s ease';
+            el.style.transform = 'scale(1.02)';
+            setTimeout(() => { el.style.transform = 'scale(1)'; }, 150);
+        });
+    }, 1000);
+
+    // ─── 5. GOLD TOAST NOTIFICATION SYSTEM ────────────────────────────────
+    // Create toast container
+    const toastRack = document.createElement('div');
+    toastRack.id = 'lumiere-toast-rack';
+    document.body.appendChild(toastRack);
+
+    window.lumiereToast = function(message, icon = '✦') {
+        const toast = document.createElement('div');
+        toast.className = 'lumiere-toast';
+        toast.innerHTML = `<span class="toast-icon">${icon}</span><span>${message}</span>`;
+        toastRack.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('show'));
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 500);
+        }, 4000);
+    };
+
+    // Show a welcome toast on page load
+    window.addEventListener('load', () => {
+        const name = localStorage.getItem('lumiere_name');
+        if (name && !location.pathname.includes('login')) {
+            setTimeout(() => window.lumiereToast(`Welcome back, ${name}`, '👋'), 800);
+        }
+    });
+
+})();
+</script>
+</body></html>

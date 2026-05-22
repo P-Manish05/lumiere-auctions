@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ELYSIAN AUCTIONS | Curated Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-fixed": "#1c1b1b",
+                "error": "#ffb4ab",
+                "outline": "#99907e",
+                "surface-variant": "#353534",
+                "on-background": "#e5e2e1",
+                "surface-container-high": "#2a2a2a",
+                "primary": "#e6c364",
+                "surface": "#131313",
+                "primary-container": "#c9a84c",
+                "on-tertiary": "#313030",
+                "background": "#131313",
+                "on-primary-fixed": "#241a00",
+                "surface-container-lowest": "#0e0e0e",
+                "on-secondary-fixed": "#1c1b1b",
+                "primary-fixed-dim": "#e6c364",
+                "error-container": "#93000a",
+                "surface-dim": "#131313",
+                "on-tertiary-container": "#40403f",
+                "inverse-primary": "#755b00",
+                "outline-variant": "#4d4637",
+                "on-primary-fixed-variant": "#584400",
+                "on-primary-container": "#503d00",
+                "tertiary": "#c9c6c6",
+                "secondary-container": "#4a4949",
+                "surface-tint": "#e6c364",
+                "surface-container-highest": "#353534",
+                "on-surface-variant": "#d0c5b2",
+                "on-secondary-container": "#bab8b7",
+                "tertiary-fixed": "#e5e2e1",
+                "surface-bright": "#3a3939",
+                "on-primary": "#3d2e00",
+                "primary-fixed": "#ffe08f",
+                "on-tertiary-fixed-variant": "#474746",
+                "secondary": "#c8c6c5",
+                "surface-container-low": "#1c1b1b",
+                "inverse-on-surface": "#313030",
+                "on-error": "#690005",
+                "inverse-surface": "#e5e2e1",
+                "on-surface": "#e5e2e1",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-secondary": "#313030",
+                "tertiary-container": "#adabab",
+                "on-secondary-fixed-variant": "#474646",
+                "secondary-fixed": "#e5e2e1",
+                "on-error-container": "#ffdad6",
+                "surface-container": "#201f1f",
+                "tertiary-fixed-dim": "#c8c6c5"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-md": "16px",
+                "stack-lg": "32px",
+                "stack-sm": "8px",
+                "container-max": "1440px",
+                "margin-mobile": "20px",
+                "section-gap": "128px",
+                "margin-desktop": "64px",
+                "gutter": "32px"
+            },
+            "fontFamily": {
+                "label-lg": ["Inter"],
+                "body-md": ["Inter"],
+                "display-lg": ["Playfair Display"],
+                "label-sm": ["Inter"],
+                "headline-md": ["Playfair Display"],
+                "headline-lg": ["Playfair Display"],
+                "headline-sm": ["Playfair Display"],
+                "body-lg": ["Inter"],
+                "headline-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #E5E2E1;
+            overflow-x: hidden;
+        }
+        .shimmer-hover:hover {
+            background: linear-gradient(90deg, transparent, rgba(230, 195, 100, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .glass-panel {
+            background: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .gold-pulse {
+            animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-gold {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card { cursor: pointer; }
+        #auctions-grid .card:hover { border-color: rgba(201,168,76,0.5); }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- Header / TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-sm text-primary uppercase tracking-[0.2em]">LUMIÃˆRE AUCTIONS</div>
+<div class="hidden md:flex gap-stack-lg items-center">
+<a class="font-label-lg text-label-lg tracking-widest text-primary border-b border-primary pb-1" href="auctions.html">LIVE AUCTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVATE SALES</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ABOUT</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="login.html">LOGIN</a>
+<a class="bg-primary text-on-primary-fixed px-6 py-2 font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all" href="login.html">REGISTER</a>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-stack-lg">
+<h1 class="font-display-lg text-headline-lg mb-4">The Spring Curated Series</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Discover exceptional provenance and rare assets curated for the most discerning collectors. From high-complication horology to post-war masterpieces.</p>
+</section>
+<!-- Filter Bar -->
+<section class="sticky top-[88px] z-40 bg-background/95 backdrop-blur-md py-6 border-y border-outline-variant/10 px-margin-desktop mb-stack-lg">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
+<div id="filter-row" class="flex gap-4 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto no-scrollbar">
+<button class="px-6 py-2 border border-primary bg-primary/10 text-primary text-label-lg font-label-lg tracking-widest">ALL LOTS</button>
+<button class="px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all text-label-lg font-label-lg tracking-widest">ART</button>
+<button class="px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all text-label-lg font-label-lg tracking-widest">WATCHES</button>
+<button class="px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all text-label-lg font-label-lg tracking-widest">JEWELRY</button>
+<button class="px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all text-label-lg font-label-lg tracking-widest">RARE ASSETS</button>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="relative flex-grow md:flex-grow-0">
+<select class="bg-surface-container border border-outline-variant/30 text-on-surface-variant font-label-lg text-label-lg py-2 pl-4 pr-10 appearance-none focus:outline-none focus:border-primary w-full">
+<option>SORT BY: ENDING SOON</option>
+<option>PRICE: LOW TO HIGH</option>
+<option>PRICE: HIGH TO LOW</option>
+<option>MOST BIDS</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Grid -->
+<section class="px-margin-desktop max-w-container-max mx-auto">
+<div id="auctions-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group relative flex flex-col border border-outline-variant/10 bg-surface-container-lowest overflow-hidden transition-all duration-500 hover:border-primary/50">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A macro cinematic shot of a vibrant abstract oil painting with heavy impasto textures and gold leaf accents. The lighting is dramatic, casting deep shadows within the paint ridges, emphasizing the high-luxury gallery aesthetic. Deep obsidian blacks and warm golden hues dominate the palette, creating a sense of exclusive modern art provenance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxE6DXuPOJGMAqZcdd89yQYqZxX6FaTw5Pk7-J17rtrdiM07g1cr9Kv7S_x0D1Zc4achrLMfXZM7uxNyQvcrDMAg4rgbPzUaW4tihF5a2CnAQsDnJqVMbrTf43UzExsEeIpYkPPsSvRIG3ixsj2bFVYB-3miRcEQpfCKDXlW0wZI4wb8kPqDCIkyxugxyPfQGtvxtE5ihbIlZBku1rD_ZEyCkRaM6zqTCsiDxQV9hsPZWgycXOOtOe2712N5gm_AHAp_00Uj-1FA"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary gold-pulse"></span>
+<span class="text-label-sm font-label-sm tracking-widest text-primary">LIVE</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-sm font-label-sm tracking-widest text-on-surface-variant uppercase">Lot 104 â€¢ Contemporary Art</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="favorite">favorite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 line-clamp-2">Abstract Resonance: Study in Obsidian and Gold No. 4</h3>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-4">
+<div>
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">CURRENT BID</p>
+<p class="text-primary font-headline-md text-headline-md">$142,000</p>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">BIDS</p>
+<p class="text-on-surface font-label-lg text-label-lg">24</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm tracking-widest">02D 14H 22M</span>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary-fixed font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all">PLACE BID</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative flex flex-col border border-outline-variant/10 bg-surface-container-lowest overflow-hidden transition-all duration-500 hover:border-primary/50">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up, cinematic photograph of a high-end luxury watch movement featuring intricate gears and a tourbillon. The lighting reflects off the polished silver and gold surfaces, creating a shimmering, high-fidelity aesthetic. The background is a soft-focus dark velvet, maintaining the quiet luxury theme with a palette of metallic silver, gold, and deep charcoal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd4NNrttXv4VcxkAoVi2xBXffRx09qFdKwJAQFXnm_eDAcR1PXSnpwYzOkE1HqKcaQdbbgnIP2fm8n3xTViihO6r3KkBCCzErxVJfrhqn5Gl2dvyjHwEHP2SZj8XsaFPD_1WCoMHZXrp13yActGkaQ5S0Q1szs7huPVN-bqf21cu3oPImtXIP_57HJxWQ3nChNL_DFp6yiReeTl4X7XzWbzzDWrS9cSLyZuHu3Jq56YlU64cfAylaihpmvPrlaplLAW7OqcIWVeQ"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary gold-pulse"></span>
+<span class="text-label-sm font-label-sm tracking-widest text-primary">LIVE</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-sm font-label-sm tracking-widest text-on-surface-variant uppercase">Lot 212 â€¢ Haute Horologie</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="favorite">favorite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 line-clamp-2">Patek Philippe Ref. 5270P Perpetual Calendar</h3>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-4">
+<div>
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">CURRENT BID</p>
+<p class="text-primary font-headline-md text-headline-md">$185,500</p>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">BIDS</p>
+<p class="text-on-surface font-label-lg text-label-lg">18</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm tracking-widest">04H 12M 05S</span>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary-fixed font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all">PLACE BID</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative flex flex-col border border-outline-variant/10 bg-surface-container-lowest overflow-hidden transition-all duration-500 hover:border-primary/50">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional studio photograph of a rare 10-carat blue diamond ring set in platinum. The diamond sparkles intensely against a deep black background, captured with a sharp focus that reveals every facet. Soft, directional lighting creates elegant highlights on the metal. The overall mood is one of extreme exclusivity and pristine luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGRwbcPcCZuk8PEVH7i18EMzWM8ZL7dVHzaKTPgoAu_dF-JZ325QlfaEQUel9uPMTrxUgzYtRbJvtX69Sj1aWvQdO8nTh1avAHefvUthAYx982_nzwCA8ocooJHBxmBm7IjGyIRI2FjwAI0lzojxwN2dEx0ILFb3H_vFFXe7bl-Tu8oj-iX2vidV9UsOOEf_1o-CyY-g3_OC4BE946IuH-I3dI0yWWjgahYrv9KQ-IZFkvnTetanUUTm75W53qNOiQhnFlntXDpw"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary gold-pulse"></span>
+<span class="text-label-sm font-label-sm tracking-widest text-primary">LIVE</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-sm font-label-sm tracking-widest text-on-surface-variant uppercase">Lot 089 â€¢ High Jewelry</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="favorite">favorite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 line-clamp-2">The Celestial Azure: 12.4ct Fancy Vivid Blue Diamond</h3>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-4">
+<div>
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">CURRENT BID</p>
+<p class="text-primary font-headline-md text-headline-md">$2,100,000</p>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">BIDS</p>
+<p class="text-on-surface font-label-lg text-label-lg">7</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm tracking-widest">12D 06H 45M</span>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary-fixed font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all">PLACE BID</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative flex flex-col border border-outline-variant/10 bg-surface-container-lowest overflow-hidden transition-all duration-500 hover:border-primary/50">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A cinematic side profile shot of a classic 1960s Ferrari in a dark, minimalist showroom. The car's polished red curves catch the light from overhead softboxes, creating long, elegant highlights. The environment is clean and sophisticated, with a polished concrete floor reflecting the vehicle. The overall atmosphere conveys speed, heritage, and significant collector value." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb3diEIqb9hgfKhj1l8okNCMV_krzpTOme1kbUAd0QtRe79WZAaIpl5mgBUhRF4gx6sXIdFtrVZBH-_0i2SOIboxIOSF0E7BJQ3UxIbf5TRByoqkWcDNy8waLzgEK06SD9uqCKAbeF9y1nIQgUVpGlL1BU9srVeHjyEb4zM8WBxfh04MBr4Qys4dESiNlNcAAdVDIML_jZw17lShk8AbNnNJwjFm_YROfrXiAAOPmeNI7OXMvRbnBkieeckSsMWFCVowhNhUZesg"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary gold-pulse"></span>
+<span class="text-label-sm font-label-sm tracking-widest text-primary">LIVE</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-sm font-label-sm tracking-widest text-on-surface-variant uppercase">Lot 440 â€¢ Rare Assets</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="favorite">favorite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 line-clamp-2">1962 Ferrari 250 GTO Heritage Edition</h3>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-4">
+<div>
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">CURRENT BID</p>
+<p class="text-primary font-headline-md text-headline-md">$4,250,000</p>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">BIDS</p>
+<p class="text-on-surface font-label-lg text-label-lg">31</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm tracking-widest">01D 02H 10M</span>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary-fixed font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all">PLACE BID</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group relative flex flex-col border border-outline-variant/10 bg-surface-container-lowest overflow-hidden transition-all duration-500 hover:border-primary/50">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-end product shot of a rare vintage wine bottle resting in a wooden crate with straw. The lighting is warm and candle-lit, casting soft glows on the aged label and dusty glass. The setting feels like an old French cellar, emphasizing history and artisanal quality. Deep reds, earthy browns, and soft golden ambers comprise the sophisticated palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOkw6XCzqL5XirVnoyBd4Jrv5boapg0FkIm6ZDLWB-EO4c9zQxTTereLhf1xDVNYnJKXChxFWCrJkA-3r5E1p6SkLLVynJu5ntIDuZnRN0ku8dbypk4pMz_k41cU2TvE7r_52QAEIgbFZ3Xs1DvckhLfovXZqA0epzPuLbj1looSeusaRNAuKfu5x41ApxI2pWLL6f32F1NZMQJh-rpnemNWwIRjgEbr8x0IjGj0J_hDGk8xUMf_Nk1RaHbwXCwhMTggAPO7ffiw"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary gold-pulse"></span>
+<span class="text-label-sm font-label-sm tracking-widest text-primary">LIVE</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-sm font-label-sm tracking-widest text-on-surface-variant uppercase">Lot 315 â€¢ Rare Spirits</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="favorite">favorite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 line-clamp-2">Domaine de la RomanÃ©e-Conti 1945 Jeroboam</h3>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-4">
+<div>
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">CURRENT BID</p>
+<p class="text-primary font-headline-md text-headline-md">$28,400</p>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">BIDS</p>
+<p class="text-on-surface font-label-lg text-label-lg">12</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm tracking-widest">15H 44M 12S</span>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary-fixed font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all">PLACE BID</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group relative flex flex-col border border-outline-variant/10 bg-surface-container-lowest overflow-hidden transition-all duration-500 hover:border-primary/50">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A modern architectural model of a futuristic private residence, displayed on a sleek black plinth in a dimly lit studio. The model features intricate glass and metal details, illuminated from within by tiny LED lights. The aesthetic is extremely clean and technical, focusing on the precision of the design. The color palette is monochromatic with sharp white highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX3B79LdqdVZ72SnXmOWGo0Is1zVjqicDfBZgegCV47glyVDDvyMbAH8HKnQopgWSTUacNmxmbPuOrGqEnsUQCwWwmnZQZNhUz_-xiKizYMy7Vh8wStL9GOCp22bmQ3rj59Z-vhfkMAq690yXj_nfD5Kl5gLcLJ-f8Wt1t2JWuWpaJ7YNVzTL2wKCITSjZGz0x3Tkg-MXE6TzEglWzPOKad6RVUhl_7st-rgcxk1bF93GlgQrpb1-7guqh45vF88CjPhMfkuP1WA"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary gold-pulse"></span>
+<span class="text-label-sm font-label-sm tracking-widest text-primary">LIVE</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-sm font-label-sm tracking-widest text-on-surface-variant uppercase">Lot 122 â€¢ Real Estate Assets</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="favorite">favorite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4 line-clamp-2">Concept Manor: Private Island Residence NFT Bundle</h3>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-4">
+<div>
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">CURRENT BID</p>
+<p class="text-primary font-headline-md text-headline-md">$1,200,000</p>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">BIDS</p>
+<p class="text-on-surface font-label-lg text-label-lg">42</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm tracking-widest">06D 09H 30M</span>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary-fixed font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all">PLACE BID</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-section-gap flex justify-center items-center gap-4">
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="w-12 h-12 flex items-center justify-center border border-primary bg-primary/10 text-primary">1</button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all">2</button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all">14</button>
+</div>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/10 w-full py-section-gap">
+<div class="flex flex-col items-center gap-stack-lg px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md text-primary tracking-[0.3em]">LUMIÃˆRE AUCTIONS</div>
+<div class="flex flex-wrap justify-center gap-stack-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY POLICY</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS OF SALE</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">SHIPPING</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">CONTACT</a>
+</div>
+<div class="flex gap-stack-md mt-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant/50 text-center tracking-widest mt-8">
+                Â© 2024 LUMIÃˆRE AUCTIONS. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<!-- FAB for quick search/support (Contextual) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary-fixed rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<script>
+        const API = 'http://localhost:8000';
+        let allAuctions = [];
+        let activeCategory = 'all';
+        const countdownMap = {};
+
+        function showToast(msg, type='info') {
+            let c = document.querySelector('.toast-container');
+            if (!c) { c = document.createElement('div'); c.className='toast-container'; document.body.appendChild(c); }
+            const t = document.createElement('div'); t.className=`toast ${type}`; t.textContent=msg; c.appendChild(t);
+            setTimeout(()=>t.classList.add('show'),10);
+            setTimeout(()=>{t.classList.remove('show');setTimeout(()=>t.remove(),300);},3500);
+        }
+
+        function fmt(n) { return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:0}); }
+
+        function countdown(endsAt) {
+            const diff = new Date(endsAt+'Z') - Date.now();
+            if (diff <= 0) return 'Auction Ended';
+            const d = Math.floor(diff/86400000);
+            const h = Math.floor((diff%86400000)/3600000);
+            const m = Math.floor((diff%3600000)/60000);
+            const s = Math.floor((diff%60000)/1000);
+            if (d > 0) return `${d}d ${h}h ${m}m left`;
+            return `${h}h ${m}m ${s}s left`;
+        }
+
+
+        function renderCard(a) {
+            const bid = a.current_bid != null ? a.current_bid : a.starting_price;
+            const label = a.current_bid != null ? 'Current Bid' : 'Starting At';
+            const imgStyle = a.image_url ? `background-image:url('${a.image_url}');` : '';
+            countdownMap[a.id] = a.ends_at;
+            return `
+            <div class="card" onclick="window.location.href='auction-detail.html?id=${a.id}'">
+                <div class="card-img" style="${imgStyle}">${!a.image_url?'No Image':''}</div>
+                <div class="card-content">
+                    <div class="card-category">${a.category||'Uncategorised'}</div>
+                    <div class="lot-number">${a.lot_number}</div>
+                    <h3 class="card-title">${a.title}</h3>
+                    <div class="countdown-inline" id="cd-${a.id}">${countdown(a.ends_at)}</div>
+                    <div class="price-info">
+                        <div>
+                            <div class="price-label">${label}</div>
+                            <div class="price-value gold">${fmt(bid)}</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div class="price-label">Bids</div>
+                            <div class="price-value">${a.bid_count??0}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer"><a href="auction-detail.html?id=${a.id}">View &amp; Bid →</a></div>
+            </div>`;
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('auctions-grid');
+            const filtered = activeCategory === 'all'
+                ? allAuctions
+                : allAuctions.filter(a => (a.category||'').toLowerCase() === activeCategory.toLowerCase());
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="loading-grid"><p>No lots in this category right now.</p></div>`;
+            } else {
+                grid.innerHTML = filtered.map(renderCard).join('');
+            }
+        }
+
+        function buildFilters() {
+          const cats = [...new Set(allAuctions.map(a => a.category).filter(Boolean))];
+          const row = document.getElementById('filter-row');
+          if (!row) return;
+          row.innerHTML = '';
+          const allBtn = document.createElement('button');
+          allBtn.className = 'px-6 py-2 border border-primary bg-primary/10 text-primary text-label-lg font-label-lg tracking-widest filter-btn active';
+          allBtn.dataset.cat = 'all';
+          allBtn.textContent = 'ALL LOTS';
+          allBtn.addEventListener('click', () => setFilter('all'));
+          row.appendChild(allBtn);
+          cats.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = 'px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all text-label-lg font-label-lg tracking-widest filter-btn';
+            btn.dataset.cat = cat;
+            btn.textContent = cat.toUpperCase();
+            btn.addEventListener('click', () => setFilter(cat));
+            row.appendChild(btn);
+          });
+        }
+
+        function setFilter(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.cat === cat);
+            });
+            renderGrid();
+        }
+
+        // Tick all visible countdowns every second
+        setInterval(() => {
+            Object.entries(countdownMap).forEach(([id, endsAt]) => {
+                const el = document.getElementById(`cd-${id}`);
+                if (el) el.textContent = countdown(endsAt);
+            });
+        }, 1000);
+
+        async function init() {
+            try {
+                const r = await fetch(`${API}/auctions?status=live`);
+                if (!r.ok) throw new Error('Bad response');
+                allAuctions = await r.json();
+            } catch(e) {
+                showToast('Could not connect to backend.','error');
+                document.getElementById('auctions-grid').innerHTML = `<div class="loading-grid"><p>Unable to load auctions. Is the backend running?</p></div>`;
+                return;
+            }
+            if (allAuctions.length === 0) {
+                document.getElementById('auctions-grid').innerHTML = `<div class="loading-grid"><p>No live auctions at the moment.</p></div>`;
+                return;
+            }
+            buildFilters();
+            renderGrid();
+        }
+
+        init();
+    </script>
+<!-- ═══ LUMIÈRE Premium Animations Engine ═══ -->
+<script>
+(function() {
+    'use strict';
+
+    // ─── 1. FADE-UP ANIMATION ON PAGE LOAD ───────────────────────────────
+    const fadeUpCSS = document.createElement('style');
+    fadeUpCSS.textContent = `
+        @keyframes lumieresFadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .lumiere-fade-up {
+            opacity: 0;
+            animation: lumieresFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        /* Gold shimmer sweep for buttons */
+        @keyframes lumiereGoldSweep {
+            0%   { left: -100%; }
+            100% { left: 100%; }
+        }
+        .lumiere-btn-shimmer { position: relative; overflow: hidden; }
+        .lumiere-btn-shimmer::before {
+            content: '';
+            position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(230,195,100,0.35), transparent);
+            transition: none; pointer-events: none;
+        }
+        .lumiere-btn-shimmer:hover::before {
+            animation: lumiereGoldSweep 0.7s ease-in-out;
+        }
+        /* Page transition overlay */
+        #lumiere-page-transition {
+            position: fixed; inset: 0; z-index: 99999;
+            background: #0e0e0e;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #lumiere-page-transition.active {
+            opacity: 1; pointer-events: all;
+        }
+        /* Gold toast notifications */
+        #lumiere-toast-rack {
+            position: fixed; bottom: 24px; right: 24px; z-index: 100000;
+            display: flex; flex-direction: column; gap: 10px; pointer-events: none;
+        }
+        .lumiere-toast {
+            pointer-events: auto;
+            background: linear-gradient(135deg, #1a1a18 0%, #201f1f 100%);
+            border: 1px solid #e6c364;
+            color: #e6c364;
+            padding: 14px 22px;
+            font-family: Inter, sans-serif;
+            font-size: 14px; letter-spacing: 0.04em;
+            box-shadow: 0 8px 32px rgba(230,195,100,0.12), 0 0 0 1px rgba(230,195,100,0.08);
+            display: flex; align-items: center; gap: 10px;
+            opacity: 0; transform: translateY(16px) scale(0.96);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .lumiere-toast.show {
+            opacity: 1; transform: translateY(0) scale(1);
+        }
+        .lumiere-toast .toast-icon {
+            font-size: 20px; flex-shrink: 0;
+        }
+    `;
+    document.head.appendChild(fadeUpCSS);
+
+    // Apply fade-up to all major sections with stagger
+    window.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('main > *, main section, main > div, #auth-container, footer');
+        sections.forEach((el, i) => {
+            el.classList.add('lumiere-fade-up');
+            el.style.animationDelay = `${0.08 + i * 0.10}s`;
+        });
+    });
+
+    // ─── 2. GOLD SHIMMER ON ALL BUTTONS ON HOVER ─────────────────────────
+    window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button, a[class*="bg-primary"], input[type="submit"]').forEach(btn => {
+            btn.classList.add('lumiere-btn-shimmer');
+        });
+    });
+
+    // ─── 3. SMOOTH PAGE TRANSITIONS ──────────────────────────────────────
+    const overlay = document.createElement('div');
+    overlay.id = 'lumiere-page-transition';
+    document.body.appendChild(overlay);
+
+    // Fade-in on page arrival
+    overlay.classList.add('active');
+    window.addEventListener('load', () => {
+        requestAnimationFrame(() => overlay.classList.remove('active'));
+    });
+
+    // Intercept internal navigation links
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('javascript') || href.startsWith('http') && !href.includes(location.host)) return;
+        // Only intercept local .html links
+        if (!href.endsWith('.html') && !href.startsWith('/') && !href.endsWith('/')) return;
+        e.preventDefault();
+        overlay.classList.add('active');
+        setTimeout(() => { window.location.href = href; }, 420);
+    });
+
+    // ─── 4. COUNTDOWN TIMER TICKING EVERY SECOND ─────────────────────────
+    // Automatically find and animate any countdown elements already on the page
+    setInterval(() => {
+        document.querySelectorAll('[id*="countdown"], [class*="countdown"]').forEach(el => {
+            // Add a subtle pulse on each tick
+            el.style.transition = 'transform 0.15s ease';
+            el.style.transform = 'scale(1.02)';
+            setTimeout(() => { el.style.transform = 'scale(1)'; }, 150);
+        });
+    }, 1000);
+
+    // ─── 5. GOLD TOAST NOTIFICATION SYSTEM ────────────────────────────────
+    // Create toast container
+    const toastRack = document.createElement('div');
+    toastRack.id = 'lumiere-toast-rack';
+    document.body.appendChild(toastRack);
+
+    window.lumiereToast = function(message, icon = '✦') {
+        const toast = document.createElement('div');
+        toast.className = 'lumiere-toast';
+        toast.innerHTML = `<span class="toast-icon">${icon}</span><span>${message}</span>`;
+        toastRack.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('show'));
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 500);
+        }, 4000);
+    };
+
+    // Show a welcome toast on page load
+    window.addEventListener('load', () => {
+        const name = localStorage.getItem('lumiere_name');
+        if (name && !location.pathname.includes('login')) {
+            setTimeout(() => window.lumiereToast(`Welcome back, ${name}`, '👋'), 800);
+        }
+    });
+
+})();
+</script>
+</body></html>
