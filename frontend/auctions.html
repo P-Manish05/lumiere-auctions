@@ -138,22 +138,36 @@
         }
         .card { cursor: pointer; }
         #auctions-grid .card:hover { border-color: rgba(201,168,76,0.5); }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .auction-card {
+            opacity: 0;
+            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
     </style>
 </head>
 <body class="font-body-md text-on-background">
 <!-- Header / TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-outline-variant/20">
-<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
-<div class="font-display-lg text-headline-sm text-primary uppercase tracking-[0.2em]">LUMIÃˆRE AUCTIONS</div>
-<div class="hidden md:flex gap-stack-lg items-center">
+<div class="flex justify-between items-center px-6 md:px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-headline-sm text-primary uppercase tracking-[0.2em] hover:opacity-85 transition-opacity" href="index.html">LUMIÈRE AUCTIONS</a>
+<div class="hidden md:flex items-center gap-stack-lg">
 <a class="font-label-lg text-label-lg tracking-widest text-primary border-b border-primary pb-1" href="auctions.html">LIVE AUCTIONS</a>
 <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a>
 <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVATE SALES</a>
 <a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ABOUT</a>
 </div>
 <div class="flex items-center gap-stack-md">
-<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="login.html">LOGIN</a>
-<a class="bg-primary text-on-primary-fixed px-6 py-2 font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all" href="login.html">REGISTER</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300" href="login.html">LOGIN</a>
+<a class="bg-primary text-on-primary px-6 py-2 font-label-lg text-label-lg tracking-widest hover:bg-primary-container transition-all" href="login.html">REGISTER</a>
 </div>
 </div>
 </nav>
@@ -427,7 +441,7 @@
 <!-- Footer -->
 <footer class="bg-surface-container-lowest border-t border-outline-variant/10 w-full py-section-gap">
 <div class="flex flex-col items-center gap-stack-lg px-margin-desktop w-full max-w-container-max mx-auto">
-<div class="font-display-lg text-headline-md text-primary tracking-[0.3em]">LUMIÃˆRE AUCTIONS</div>
+<div class="font-display-lg text-headline-md text-primary tracking-[0.2em]">LUMIÈRE AUCTIONS</div>
 <div class="flex flex-wrap justify-center gap-stack-lg">
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY POLICY</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS OF SALE</a>
@@ -446,7 +460,7 @@
 </a>
 </div>
 <div class="font-body-md text-body-md text-on-surface-variant/50 text-center tracking-widest mt-8">
-                Â© 2024 LUMIÃˆRE AUCTIONS. ALL RIGHTS RESERVED.
+                © 2024 LUMIÈRE AUCTIONS. ALL RIGHTS RESERVED.
             </div>
 </div>
 </footer>
@@ -482,31 +496,47 @@
         }
 
 
-        function renderCard(a) {
+        function renderCard(a, i = 0) {
             const bid = a.current_bid != null ? a.current_bid : a.starting_price;
-            const label = a.current_bid != null ? 'Current Bid' : 'Starting At';
-            const imgStyle = a.image_url ? `background-image:url('${a.image_url}');` : '';
+            const label = a.current_bid != null ? 'CURRENT BID' : 'STARTING AT';
             countdownMap[a.id] = a.ends_at;
+            const imageUrl = a.image_url || 'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=800&q=80';
+            
             return `
-            <div class="card" onclick="window.location.href='auction-detail.html?id=${a.id}'">
-                <div class="card-img" style="${imgStyle}">${!a.image_url?'No Image':''}</div>
-                <div class="card-content">
-                    <div class="card-category">${a.category||'Uncategorised'}</div>
-                    <div class="lot-number">${a.lot_number}</div>
-                    <h3 class="card-title">${a.title}</h3>
-                    <div class="countdown-inline" id="cd-${a.id}">${countdown(a.ends_at)}</div>
-                    <div class="price-info">
-                        <div>
-                            <div class="price-label">${label}</div>
-                            <div class="price-value gold">${fmt(bid)}</div>
+            <div class="group relative flex flex-col border border-outline-variant/10 bg-surface-container-lowest overflow-hidden transition-all duration-500 hover:border-primary/50 auction-card cursor-pointer" onclick="window.location.href='auction-detail.html?id=${a.id}'" style="animation-delay: ${i * 0.08}s;">
+                <div class="aspect-[4/5] overflow-hidden relative">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="${imageUrl}" alt="${a.title}"/>
+                    <div class="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 border border-primary/30">
+                        <span class="w-2 h-2 rounded-full bg-primary gold-pulse"></span>
+                        <span class="text-label-sm font-label-sm tracking-widest text-primary">LIVE</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-label-sm font-label-sm tracking-widest text-on-surface-variant uppercase">Lot ${a.lot_number || 'N/A'} • ${a.category || 'Uncategorised'}</span>
+                        <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="favorite" onclick="event.stopPropagation();">favorite</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-4 line-clamp-2">${a.title}</h3>
+                    <div class="mt-auto space-y-4">
+                        <div class="flex justify-between items-end border-b border-outline-variant/10 pb-4">
+                            <div>
+                                <p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">${label}</p>
+                                <p class="text-primary font-headline-md text-headline-md">${fmt(bid)}</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-label-sm font-label-sm tracking-widest text-on-surface-variant mb-1">BIDS</p>
+                                <p class="text-on-surface font-label-lg text-label-lg">${a.bid_count ?? 0}</p>
+                            </div>
                         </div>
-                        <div style="text-align:right;">
-                            <div class="price-label">Bids</div>
-                            <div class="price-value">${a.bid_count??0}</div>
+                        <div class="flex justify-between items-center pt-2">
+                            <div class="flex items-center gap-2 text-on-surface-variant">
+                                <span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                                <span class="font-label-sm text-label-sm tracking-widest" id="cd-${a.id}">${countdown(a.ends_at)}</span>
+                            </div>
+                            <button class="px-6 py-2 bg-primary text-on-primary-fixed font-label-lg text-label-lg tracking-widest hover:brightness-110 transition-all">PLACE BID</button>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer"><a href="auction-detail.html?id=${a.id}">View &amp; Bid →</a></div>
             </div>`;
         }
 
@@ -518,7 +548,7 @@
             if (filtered.length === 0) {
                 grid.innerHTML = `<div class="loading-grid"><p>No lots in this category right now.</p></div>`;
             } else {
-                grid.innerHTML = filtered.map(renderCard).join('');
+                grid.innerHTML = filtered.map((a, i) => renderCard(a, i)).join('');
             }
         }
 

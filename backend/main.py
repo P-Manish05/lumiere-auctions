@@ -37,7 +37,7 @@ def seed_database():
             watch = Auction(
                 title="Rolex Cosmograph Daytona 'Paul Newman' Ref. 6239",
                 description="An exceptionally rare and highly sought-after vintage Rolex Cosmograph Daytona with 'Paul Newman' exotic white-and-black dial. Pristine condition with original box and papers.",
-                image_url="https://images.unsplash.com/photo-1547996160-81dfa63595aa",
+                image_url="https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=800&q=80",
                 starting_price=25000.0,
                 current_bid=None,
                 reserve_price=28000.0,
@@ -51,7 +51,7 @@ def seed_database():
             car = Auction(
                 title="Porsche 911 Carrera RS 2.7 (1973)",
                 description="One of the most iconic vintage sports cars of all time. Fully restored matching-numbers chassis, finished in classic Grand Prix White with blue lettering and Carrera decals.",
-                image_url="https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+                image_url="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
                 starting_price=85000.0,
                 current_bid=None,
                 reserve_price=95000.0,
@@ -65,7 +65,7 @@ def seed_database():
             art = Auction(
                 title="Symphony of the Azure Valley",
                 description="A magnificent, large-scale abstract oil canvas by contemporary French artist, featuring vibrant brushstrokes, rich textures, and deep layered cobalt and azure tones.",
-                image_url="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5",
+                image_url="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80",
                 starting_price=12000.0,
                 current_bid=None,
                 reserve_price=15000.0,
