@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMIÈRE AUCTIONS | Where Rare Becomes Legendary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "primary": "#e6c364",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#313030",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed": "#241a00",
+                        "primary-container": "#c9a84c",
+                        "on-secondary": "#313030",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-container": "#adabab",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "inverse-primary": "#755b00",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-fixed": "#ffe08f",
+                        "secondary": "#c8c6c5",
+                        "surface-variant": "#353534",
+                        "primary-fixed-dim": "#e6c364",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-bright": "#3a3939",
+                        "background": "#0a0a0a",
+                        "on-secondary-container": "#bab8b7",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#e5e2e1",
+                        "tertiary": "#c9c6c6",
+                        "on-surface-variant": "#d0c5b2",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-dim": "#131313",
+                        "secondary-container": "#4a4949",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "on-error": "#690005",
+                        "outline": "#99907e",
+                        "on-primary-container": "#503d00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface": "#131313",
+                        "surface-container-highest": "#353534",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "surface-tint": "#e6c364",
+                        "outline-variant": "#4d4637",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary": "#3d2e00",
+                        "on-tertiary-container": "#40403f",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "128px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px",
+                        "stack-lg": "32px",
+                        "margin-desktop": "64px",
+                        "gutter": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+
+        .shimmer-hover:hover {
+            background: linear-gradient(90deg, transparent, rgba(230, 195, 100, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .gold-pulse {
+            animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .5; transform: scale(1.2); }
+        }
+
+        .floating-dust {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #e6c364;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .watch-hand {
+            transform-origin: center;
+            transition: transform 0.5s cubic-bezier(0.4, 2.08, 0.55, 0.44);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e6c364;
+        }
+    </style>
+</head>
+<body class="font-body-md">
+<!-- Dust Particles Container -->
+<div class="fixed inset-0 pointer-events-none z-[1]" id="dust-container"></div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-6 md:px-16 py-6 w-full max-w-[1440px] mx-auto">
+<div class="font-display-lg text-headline-sm text-primary uppercase tracking-[0.2em]">
+                LUMIÈRE AUCTIONS
+            </div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="auctions.html">LIVE AUCTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVATE SALES</a>
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ABOUT</a>
+</div>
+<div class="flex gap-6 items-center">
+<a class="font-label-lg text-label-lg tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="login.html">LOGIN</a>
+<a class="bg-primary text-background px-8 py-3 font-label-lg text-label-lg tracking-widest hover:bg-primary-container transition-all duration-300" href="login.html">REGISTER</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Dramatic Spotlight Close-up" class="w-full h-full object-cover brightness-50" src="https://lh3.googleusercontent.com/aida/ADBb0ui3WhYzJAgmK0wEU-TxGfNwTdWEaASckEbo8YIdbQYb5Z50AaBtYPW8R7v64no6fmui-_Acs3pXl2PSPzyCLj-G9cxntqyFuQDSYfe2EV8woAdad3pwJvX_IcFjNlPF4w4pva0-2ru4FzKHzjeiFYAmL6GcPaTSnCpTjDquC9mZukpyKRjHPKQGs3zVRRhf47wuktnDlc8eP3lHqJHGlKc-1mI3Kkw9QDKn1cs7oeeW0dJzPr5mpJIerA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-0">
+<h1 class="font-display-lg text-[64px] md:text-[120px] text-white leading-tight mb-8">
+                Where Rare<br/>
+<span class="italic text-primary">Becomes</span><br/>
+                Legendary
+            </h1>
+<div class="w-16 h-[1px] bg-primary mx-auto mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto tracking-widest uppercase mb-12">
+                Curating the Extraordinary Since 1924
+            </p>
+<a class="border border-primary text-primary px-12 py-5 font-label-lg text-label-lg tracking-[0.3em] hover:bg-primary hover:text-background transition-all duration-500 inline-block" href="login.html">
+                EXPLORE CATALOGUE
+            </a>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+<span class="text-primary font-label-sm tracking-[0.2em]">SCROLL</span>
+<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+</div>
+</section>
+<!-- Stats Bar -->
+<section class="bg-surface-container-lowest py-16 border-y border-outline-variant/10 relative z-10">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+<div class="flex flex-col gap-2">
+<span class="font-headline-md text-primary">$2.4B+</span>
+<span class="font-label-sm tracking-widest text-on-surface-variant uppercase">Total Sales</span>
+</div>
+<div class="hidden md:block w-[1px] h-full bg-outline-variant/20 absolute left-1/4"></div>
+<div class="flex flex-col gap-2">
+<span class="font-headline-md text-primary">12.4k</span>
+<span class="font-label-sm tracking-widest text-on-surface-variant uppercase">Collectors</span>
+</div>
+<div class="hidden md:block w-[1px] h-full bg-outline-variant/20 absolute left-1/2"></div>
+<div class="flex flex-col gap-2">
+<span class="font-headline-md text-primary">45</span>
+<span class="font-label-sm tracking-widest text-on-surface-variant uppercase">Global Offices</span>
+</div>
+<div class="hidden md:block w-[1px] h-full bg-outline-variant/20 absolute left-3/4"></div>
+<div class="flex flex-col gap-2">
+<span class="font-headline-md text-primary">98%</span>
+<span class="font-label-sm tracking-widest text-on-surface-variant uppercase">Sell-Through Rate</span>
+</div>
+</div>
+</section>
+<!-- The Timepiece Split Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid md:grid-cols-2 gap-24 items-center">
+<div class="scroll-reveal">
+<span class="text-primary font-label-lg tracking-[0.3em] mb-6 block">MASTERPIECES</span>
+<h2 class="font-headline-lg text-headline-lg mb-8 leading-tight">Time Is The<br/>Ultimate Luxury</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed max-w-lg">
+                    Discover horological excellence. From vintage complications to modern marvels, each second is measured in heritage and craft. Our upcoming Watch Week features the rarest movements ever assembled.
+                </p>
+<a class="inline-flex items-center gap-4 text-primary font-label-lg tracking-widest group" href="#">
+                    VIEW HOROLOGY COLLECTION
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_right_alt</span>
+</a>
+</div>
+<div class="flex justify-center scroll-reveal">
+<div class="relative w-80 h-80 md:w-[450px] md:h-[450px]">
+<svg class="w-full h-full drop-shadow-[0_0_30px_rgba(230,195,100,0.15)]" viewbox="0 0 400 400">
+<!-- Watch Face -->
+<circle cx="200" cy="200" fill="none" r="190" stroke="#e6c364" stroke-width="1.5"></circle>
+<circle cx="200" cy="200" fill="#131313" r="185" stroke="#2a2a2a" stroke-width="0.5"></circle>
+<!-- Roman Numerals -->
+<g fill="#e6c364" font-family="Playfair Display" font-size="24" text-anchor="middle">
+<text x="200" y="55">XII</text>
+<text x="345" y="208">III</text>
+<text x="200" y="365">VI</text>
+<text x="55" y="208">IX</text>
+</g>
+<!-- Hands -->
+<g class="watch-hand" id="hour-hand">
+<line stroke="#e6c364" stroke-width="4" x1="200" x2="200" y1="200" y2="100"></line>
+</g>
+<g class="watch-hand" id="minute-hand">
+<line stroke="#e6c364" stroke-width="2" x1="200" x2="200" y1="200" y2="70"></line>
+</g>
+<g class="watch-hand" id="second-hand">
+<line stroke="#c9a84c" stroke-width="1" x1="200" x2="200" y1="200" y2="60"></line>
+<circle cx="200" cy="200" fill="#c9a84c" r="4"></circle>
+</g>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Curated Collections -->
+<section class="py-section-gap bg-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex justify-between items-end mb-16 scroll-reveal">
+<div>
+<span class="text-primary font-label-lg tracking-[0.3em] mb-4 block uppercase">The Seasonal Edit</span>
+<h2 class="font-headline-lg text-headline-lg">Curated Collections</h2>
+</div>
+<a class="border border-outline-variant/30 px-8 py-3 text-on-surface-variant font-label-lg tracking-widest hover:border-primary hover:text-primary transition-all inline-block" href="auctions.html">VIEW ALL</a>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group relative aspect-[3/4] overflow-hidden scroll-reveal" style="transition-delay: 100ms;">
+<img alt="Old Master Painting" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75" src="https://lh3.googleusercontent.com/aida/ADBb0uhMHB0HjlCLGruM94cq05-mwkTUZ9We6h3FcIW0LYkPaizJAY_b97ymBq4UjB9LUSBn_8aj5fVTMK9N31P5u_XAKgMWZoin4OhUAIiZHaGT59iSJdLI846MCj0QaydG-yj-rxJW13SCo5-bcn0XplGUjnNMFfoBqyhcDavFKTe1rTY18jI5WHTpkSM2FUoYosDUUDuKztvFq9kunNfkhiEKiEjUBNDs2tyzEz79b6WIiumPTWKwlnXB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-10 left-10 right-10">
+<h3 class="font-headline-md text-headline-md text-white mb-4">Old Master Works</h3>
+<div class="w-10 h-[1px] bg-primary mb-6 transition-all duration-500 group-hover:w-full"></div>
+<span class="font-label-lg text-primary tracking-[0.2em]">64 LOTS AVAILABLE</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative aspect-[3/4] overflow-hidden scroll-reveal" style="transition-delay: 300ms;">
+<img alt="Haute Horology Mechanism" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75" src="https://lh3.googleusercontent.com/aida/ADBb0uiDUD7FDF6fGRRxfmmdJyB1KkMgq708jhbZJdK5v1lhvT0rpwOVzP-kF2owGNgp4wUtmeKwl7WqjwGD7fROduxb_zIlukb0nMcbb7xNAlfD7sIZG9sh12zxC3qm3KCkDC1A4q67kqz_KjckE-e7ajxDn7h_cgmAT_ddoWEmQ5S9YdnA45J34rcXyisfkZadeR7OS3GUL5M_BZuEh4toW3nozFMGX_MiFI2uOEz0-9bV5m2WC6iwx2nm"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-10 left-10 right-10">
+<h3 class="font-headline-md text-headline-md text-white mb-4">Exceptional Timepieces</h3>
+<div class="w-10 h-[1px] bg-primary mb-6 transition-all duration-500 group-hover:w-full"></div>
+<span class="font-label-lg text-primary tracking-[0.2em]">122 LOTS AVAILABLE</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative aspect-[3/4] overflow-hidden scroll-reveal" style="transition-delay: 500ms;">
+<img alt="Classic Automobile Spotlight" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75" src="https://lh3.googleusercontent.com/aida/ADBb0ugpdpsegkMLyCTe6IMnyrzLQFwFSTdmwHY2R_wsJBYiL_PUUArwvuEwOm20OwH9VSefMn7SnJR7aKSKf8iuSsGqnAJaglnfsqLv93oMt3jdYds1G_RWpGinIRVSR8Cho9kXiN_6uqXGWgllA5Efc7YNuPvDq8rnmqLeYPo2imLEh0MBcnfxZ1eI42d5Osl9hg5uv9cFvrBU36YxroRI8LZRRCG9EwwFQflyricd4WhDMfzLUd5YojS0Ug"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-10 left-10 right-10">
+<h3 class="font-headline-md text-headline-md text-white mb-4">Automotive Heritage</h3>
+<div class="w-10 h-[1px] bg-primary mb-6 transition-all duration-500 group-hover:w-full"></div>
+<span class="font-label-lg text-primary tracking-[0.2em]">18 LOTS AVAILABLE</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Auctions -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-4 mb-16 scroll-reveal">
+<div class="w-3 h-3 bg-primary rounded-full gold-pulse"></div>
+<h2 class="font-headline-lg text-headline-lg uppercase tracking-wider">Live Now</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<!-- Auction Item 1 -->
+<div class="scroll-reveal bg-surface-container-low border border-outline-variant/10 p-4 transition-colors hover:border-primary/40 group">
+<div class="relative overflow-hidden aspect-video mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Close up of a classic 1950s luxury sports car dashboard with glowing dials and polished chrome accents in a dark, moody automotive studio. The lighting is cinematic, casting sharp shadows and highlighting the metallic curves of the vehicle. Gold accents shimmer in the reflection of the dashboard glass. A sense of timeless elegance and power permeates the scene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnan4oPCEhyBMq6SUp2A4QkpJi8SgYH5yLJ-W2OtpunqlOzTtnfzwYogvP19EMJegp2R1bVqn7r926gIHKdOc-6E0qZ4DBeSOED_cojPXWkOTIirfVNBOci5QLdwbTjdg32p2GUxICIbdfqvKRpRfI5YpMu3EY63W0vx94gn6k3sYreyitEaoq9BcDgvXZPQ_yCstgswkpXo0xRp8jmmyzn_kvAbY4qqpUxA1qbPrF75JULeEIBlZ8jTHbY29v97qQNFXvAcnMYg"/>
+<div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 text-primary font-label-sm tracking-widest countdown" data-time="3600">
+                        00:59:59
+                    </div>
+</div>
+<div class="px-2 pb-4">
+<p class="font-label-sm text-primary-container tracking-widest mb-2">LOT 244 • MARANELLO CLASSICS</p>
+<h3 class="font-headline-sm text-headline-sm mb-6">1957 California Spider</h3>
+<div class="flex justify-between items-center py-4 border-t border-outline-variant/20">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">Current Bid</p>
+<p class="font-headline-sm text-primary">$18,400,000</p>
+</div>
+<a class="bg-primary-container text-on-primary-container px-6 py-2 font-label-lg tracking-widest hover:bg-primary transition-colors inline-block" href="auction-detail.html">BID</a>
+</div>
+</div>
+</div>
+<!-- Auction Item 2 -->
+<div class="scroll-reveal bg-surface-container-low border border-outline-variant/10 p-4 transition-colors hover:border-primary/40 group">
+<div class="relative overflow-hidden aspect-video mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="An exquisite high-end diamond necklace displayed on a black velvet mannequin in a luxury gallery setting. A singular spotlight creates intense light refraction, casting rainbow spectrum flares across the dark environment. The diamond's facets catch the light brilliantly against the deep black background. The overall mood is one of extreme exclusivity, quiet luxury, and artistic reverence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6dzHRuHEvr8eml6iPRKMXbVIhMSi5q6rOT3feVKD5NzKocXIGkHZikjqXORB0DZEFl4cnI6I53Txwq2gETpzV3-JkfxBJ4G0UBluNyQtns7PAknE2yYo7SgHGObgh458TQEZFK2cPD2hlOpHSNaSt19WDYrV81cspGzMop_DIv2xUQEDaKJtSWS2X55xSK8G7KkmFAuw050IbahvjiKNIx7YIEntIA8H7KWrc139fa8aB_PE0HlRHvU8-X8ddE2QVxSDx5y2piw"/>
+<div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 text-primary font-label-sm tracking-widest countdown" data-time="7200">
+                        01:59:59
+                    </div>
+</div>
+<div class="px-2 pb-4">
+<p class="font-label-sm text-primary-container tracking-widest mb-2">LOT 108 • THE RADIANCE COLLECTION</p>
+<h3 class="font-headline-sm text-headline-sm mb-6">The Eternal Bloom Diamond</h3>
+<div class="flex justify-between items-center py-4 border-t border-outline-variant/20">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">Current Bid</p>
+<p class="font-headline-sm text-primary">$4,250,000</p>
+</div>
+<a class="bg-primary-container text-on-primary-container px-6 py-2 font-label-lg tracking-widest hover:bg-primary transition-colors inline-block" href="auction-detail.html">BID</a>
+</div>
+</div>
+</div>
+<!-- Auction Item 3 -->
+<div class="scroll-reveal bg-surface-container-low border border-outline-variant/10 p-4 transition-colors hover:border-primary/40 group">
+<div class="relative overflow-hidden aspect-video mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A detailed view of an ornate, 18th-century gold-framed oil painting showing a dramatic stormy seascape. The painting is mounted on a textured, charcoal-gray wall in a dark gallery space. A single overhead light beam highlights the oil paint textures and the rich gold leaf of the frame. The scene is silent, sophisticated, and evokes a strong sense of historical value and artistic mastery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB309r3visHvRnuLZ9Q8wovJjztVg4FklmpZSY6jHyup1G49GlabAxi3ouWeRDSBvY76wW2MSKNBSPGpLAfnC9GpoztKX453qWd4UVdXYWd6xBvdBp2K3roDixZ_eybxDBZn9h0ymcyV8x5yZOwpmtAfx-E51ovwq-LqQRyHg7kgYeMnd739AvlLDqelOR9I2ay3JmvQBsRHSsdRf9xLfRW36Ng2PkCQURfA_gRU-pETr3adaVdtfBKgIO6vgnGg1CTBn6IIKir6g"/>
+<div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 text-primary font-label-sm tracking-widest countdown" data-time="1800">
+                        00:29:59
+                    </div>
+</div>
+<div class="px-2 pb-4">
+<p class="font-label-sm text-primary-container tracking-widest mb-2">LOT 52 • MARITIME MASTERS</p>
+<h3 class="font-headline-sm text-headline-sm mb-6">Tempest off Gibraltar</h3>
+<div class="flex justify-between items-center py-4 border-t border-outline-variant/20">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">Current Bid</p>
+<p class="font-headline-sm text-primary">$1,890,000</p>
+</div>
+<a class="bg-primary-container text-on-primary-container px-6 py-2 font-label-lg tracking-widest hover:bg-primary transition-colors inline-block" href="auction-detail.html">BID</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-section-gap bg-background border-y border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-center mb-24 scroll-reveal">The Path to Acquisition</h2>
+<div class="grid md:grid-cols-3 gap-24">
+<div class="scroll-reveal" style="transition-delay: 100ms;">
+<div class="font-display-lg text-[80px] text-primary/10 mb-8 leading-none">01</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Registry &amp; Verification</h3>
+<p class="text-on-surface-variant leading-relaxed">Submit your credentials for our exclusive bidding tier. Our concierge team verifies all participants to ensure the integrity of the gallery experience.</p>
+</div>
+<div class="scroll-reveal" style="transition-delay: 300ms;">
+<div class="font-display-lg text-[80px] text-primary/10 mb-8 leading-none">02</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Real-Time Participation</h3>
+<p class="text-on-surface-variant leading-relaxed">Join live auctions from anywhere in the world. Our low-latency bidding system provides the same rush as standing on our London floor.</p>
+</div>
+<div class="scroll-reveal" style="transition-delay: 500ms;">
+<div class="font-display-lg text-[80px] text-primary/10 mb-8 leading-none">03</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Curation &amp; Delivery</h3>
+<p class="text-on-surface-variant leading-relaxed">Successful acquisitions are handled by our global white-glove logistics network, ensuring your piece arrives in pristine condition.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="bg-surface-container-high p-16 md:p-24 relative overflow-hidden scroll-reveal">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="relative z-10 grid md:grid-cols-2 gap-24 items-center">
+<div>
+<span class="text-primary font-label-lg tracking-[0.3em] mb-6 block">THE LUMIÈRE STANDARD</span>
+<h2 class="font-headline-lg text-headline-lg mb-8">Uncompromising Authentication</h2>
+<p class="text-on-surface-variant text-body-lg mb-10 leading-relaxed">
+                        Every lot under the Lumière gavel undergoes a rigorous triple-tier authentication process led by world-renowned subject matter experts.
+                    </p>
+<div class="space-y-6">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<h4 class="font-label-lg text-white mb-1">Guaranteed Provenance</h4>
+<p class="text-on-surface-variant text-sm">Full digital and physical history of every piece.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+<div>
+<h4 class="font-label-lg text-white mb-1">Escrow Protection</h4>
+<p class="text-on-surface-variant text-sm">Funds are secured until global delivery is confirmed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden md:block">
+<img class="w-full h-[500px] object-cover grayscale brightness-75" data-alt="A macro close-up of a magnifying loupe being held over a vintage luxury watch movement. The polished steel gears and synthetic rubies of the mechanism are sharply in focus. The setting is a dark, professional workspace with warm, concentrated light beams hitting the metallic surfaces. The atmosphere is quiet, clinical, and emphasizes the extreme precision and detail of expert authentication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6l8BWNb107o2tHW59rM4igoCOZyxgnLXlTa_2g39ZfsapYcjyEegGxHLGuceo0eliyhIYXECgRCdZrkYcCkD2i2fU6SANQSfak4xaFIxw0dIG3ocx7a1vztRKpOKk9AqlS3JrXGkMNdh9sqHjLZViUlMgqZKrLLU6s0kSWNdrgWwXOvrUDmdCQv8Rb60FGkRJvRPAwFB3wXM4pAWdAizfNATzx-4y9PoxVWRZNwmQDIkP8-jIT-_9DyicfWCYRQCthwag-AAgag"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-section-gap relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(230,195,100,0.05),transparent_70%)]"></div>
+<div class="text-center px-6 relative z-10 scroll-reveal">
+<h2 class="font-headline-lg text-[48px] md:text-[64px] mb-12">Begin Your Collection</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto mb-16 text-body-lg leading-relaxed">
+                Join the world's most discerning collectors. Register now for early access to our upcoming Autumn Masterpiece series.
+            </p>
+<div class="flex flex-col md:flex-row gap-8 justify-center">
+<a class="bg-primary text-background px-16 py-6 font-label-lg tracking-[0.3em] hover:bg-white transition-all duration-500 inline-block" href="login.html">REGISTER NOW</a>
+<button class="border border-outline-variant/50 text-white px-16 py-6 font-label-lg tracking-[0.3em] hover:border-primary hover:text-primary transition-all duration-500">REQUEST CONCIERGE</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/10 py-24">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col items-center gap-12 text-center">
+<div class="font-display-lg text-headline-md text-primary tracking-[0.4em]">LUMIÈRE AUCTIONS</div>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-6">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="#">PRIVACY POLICY</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="#">TERMS OF SALE</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="#">SHIPPING</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="#">CONTACT</a>
+</div>
+<div class="w-full h-[1px] bg-outline-variant/10 my-8"></div>
+<p class="text-on-surface-variant text-sm tracking-widest">© 2024 LUMIÈRE AUCTIONS. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Watch Logic
+        function updateWatch() {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const second = now.getSeconds();
+
+            const hrDeg = (hour % 12) * 30 + minute * 0.5;
+            const minDeg = minute * 6;
+            const secDeg = second * 6;
+
+            document.getElementById('hour-hand').style.transform = `rotate(${hrDeg}deg)`;
+            document.getElementById('minute-hand').style.transform = `rotate(${minDeg}deg)`;
+            document.getElementById('second-hand').style.transform = `rotate(${secDeg}deg)`;
+        }
+        setInterval(updateWatch, 1000);
+        updateWatch();
+
+        // Dust Effect
+        const dustContainer = document.getElementById('dust-container');
+        function createDust() {
+            const dust = document.createElement('div');
+            dust.className = 'floating-dust';
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            
+            dust.style.left = `${startX}px`;
+            dust.style.top = `${startY}px`;
+            
+            dustContainer.appendChild(dust);
+            
+            const animation = dust.animate([
+                { opacity: 0, transform: 'translate(0, 0)' },
+                { opacity: 0.4, transform: `translate(${Math.random() * 100 - 50}px, -100px)` },
+                { opacity: 0, transform: `translate(${Math.random() * 200 - 100}px, -200px)` }
+            ], {
+                duration: 4000 + Math.random() * 6000,
+                easing: 'linear'
+            });
+
+            animation.onfinish = () => dust.remove();
+        }
+        setInterval(createDust, 200);
+
+        // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Countdown Timer Logic
+        function updateCountdowns() {
+            document.querySelectorAll('.countdown').forEach(timer => {
+                let time = parseInt(timer.getAttribute('data-time'));
+                if (time > 0) {
+                    time--;
+                    timer.setAttribute('data-time', time);
+                    const h = Math.floor(time / 3600).toString().padStart(2, '0');
+                    const m = Math.floor((time % 3600) / 60).toString().padStart(2, '0');
+                    const s = (time % 60).toString().padStart(2, '0');
+                    timer.textContent = `${h}:${m}:${s}`;
+                }
+            });
+        }
+        setInterval(updateCountdowns, 1000);
+    </script>
+</body></html>
